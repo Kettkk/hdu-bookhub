@@ -1,0 +1,7 @@
+﻿@bookHubServer_HostAddress = http://localhost:5152
+
+GET {{bookHubServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
