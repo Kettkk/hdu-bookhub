@@ -1,19 +1,23 @@
-﻿<Properties StartupConfiguration="{224F94C7-2FF1-4A03-B14C-986A0CA549CD}|https">
-  <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
+﻿<Properties StartupConfiguration="{224F94C7-2FF1-4A03-B14C-986A0CA549CD}|http">
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Program.cs">
     <Files>
-      <File FileName="bookHubServer/Program.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Program.cs" Line="10" Column="2" />
+      <File FileName="bookHubServer/ConfigFile/appsettings.json" />
+      <File FileName="bookHubServer/Properties/launchSettings.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="bookHubServer" expanded="True">
-            <Node name="bookHubServer" expanded="True">
+            <Node name="bookHubServer">
               <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="MySql.Data" selected="True" />
+                </Node>
               </Node>
-              <Node name="Server" selected="True" />
             </Node>
           </Node>
         </State>
@@ -24,5 +28,4 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
