@@ -34,7 +34,7 @@ const go2YourProfile = () => {
     }
     .header-wrap {
         position: relative;
-        width: 1000px;
+        width: 1200px;
         height: 100%;
         margin: 0 auto;
     }

@@ -2,26 +2,21 @@
     import { ref } from 'vue'
     import { Search } from '@element-plus/icons-vue'
     const input3 = ref('')
-    const select = ref('')
 </script>
 <template>
     <div id="headerSearchBox" class="header-search-box">
-        <div class="search-box">
-            <!-- <a href="javascript:;" class="logo">
-                <img src="https://img.alicdn.com/tfs/TB1Q7Q7XQvoK1RjSZFNXXcxMVXa-200-200.png" alt="logo" /> -->
-            <div class="mt-4">
-                <el-input v-model="input3" style="max-width: 600px" placeholder="Please input" class="input-with-select">
-                <template #prepend>
-                    <el-select v-model="select" placeholder="Select" style="width: 115px">
-                    <el-option label="Restaurant" value="1" />
-                    <el-option label="Order No." value="2" />
-                    <el-option label="Tel" value="3" />
-                    </el-select>
-                </template>
-                <template #append>
-                    <el-button :icon="Search" />
-                </template>
-                </el-input>
+        <div class="header-search">
+            <a href="http://localhost:8080/">
+                <img src="@/assets/userAvatars/HDUBookhub.png" class="logo" alt="logo" />
+            </a>
+            <div class="search-box">
+                <div class="mt-4">
+                    <el-input v-model="input3" style="max-width: 600px" placeholder="商品名称" class="input-with-select" size="large">
+                        <template #append>
+                            <el-button :icon="Search" />
+                        </template>
+                    </el-input>
+                </div>
             </div>
         </div>
     </div>
@@ -30,5 +25,22 @@
     .header-search-box {
         background: #f2f1ea;
         height: 100px;
+    }
+    .header-search{
+        width: 1200px;
+        height: 100px;
+        margin: 0 auto;
+        padding-top: 25px;
+        box-sizing: border-box;
+    }
+    .logo {
+        max-height: 40px;
+    }
+    .search-box {
+        float: right;
+    }
+    .mt-4 {
+        margin-top: 4px;
+        width: 600px;
     }
 </style>

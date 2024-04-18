@@ -1,6 +1,8 @@
 <script setup>
 
-import YourProfileViewMainComponent from "@/components/otherAndYourProfileComponents/yourProfileComponents/yourProfileViewMainComponent.vue";
+
+import YourProfileViewMainComponent
+  from "@/components/otherAndYourProfileComponents/YourProfileComponents/yourProfileViewMainComponent.vue";
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import YourProfileViewMainComponent from "@/components/otherAndYourProfileCompon
       </el-header>
 
       <el-main id="mainContainer">
-        <YourProfileViewMainComponent></YourProfileViewMainComponent>
+        <your-profile-view-main-component></your-profile-view-main-component>
       </el-main>
 
       <el-footer id="footerContainer">Footer</el-footer>
