@@ -7,16 +7,28 @@ import PageHeaderComponent
 <template>
 <div>
   <el-container>
-    <el-header style="background-color: #f6f8fa">
+    <el-header id="headerContainer">
       <PageHeaderComponent></PageHeaderComponent>
     </el-header>
 
-    <el-main>Main</el-main>
+    <el-main id="mainContainer">
+
+    </el-main>
+
     <el-footer>Footer</el-footer>
   </el-container>
 </div>
 </template>
 
 <style scoped>
-
+#headerContainer{
+  background-color: #f6f8fa;
+  width: 100%;
+  height: 50px;
+}
+#mainContainer{
+  background-color: #f6f8fa;
+  width: 100%;
+  height: 800px;
+}
 </style>
