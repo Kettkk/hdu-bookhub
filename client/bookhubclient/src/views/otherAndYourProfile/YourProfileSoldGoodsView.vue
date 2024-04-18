@@ -1,7 +1,8 @@
 <script setup>
 
 import PageHeaderComponent
-  from "@/components/otherAndYourProfileComponents/child3ViewComponents/PageHeaderComponent.vue";
+  from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageHeaderComponent.vue";
+import PageMainComponent from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageMainComponent.vue";
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import PageHeaderComponent
     </el-header>
 
     <el-main id="mainContainer">
-
+      <PageMainComponent></PageMainComponent>
     </el-main>
 
     <el-footer>Footer</el-footer>

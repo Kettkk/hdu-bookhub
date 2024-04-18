@@ -1,6 +1,6 @@
 <script setup>
-import UserInfoComponent from "@/components/otherAndYourProfileComponents/YourProfileComponents/UserInfoComponent.vue";
-import UserGoodInfoComponent from "@/components/otherAndYourProfileComponents/YourProfileComponents/UserGoodInfoComponent.vue";
+import UserInfoComponent from "@/components/otherAndYourProfileComponents/yourProfileComponents/userInfoComponent.vue";
+import UserGoodInfoComponent from "@/components/otherAndYourProfileComponents/yourProfileComponents/userGoodInfoComponent.vue";
 </script>
 
 <template>

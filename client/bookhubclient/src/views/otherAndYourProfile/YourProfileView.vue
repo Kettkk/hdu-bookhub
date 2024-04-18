@@ -1,6 +1,6 @@
 <script setup>
 
-import YourProfileViewMainComponent from "@/components/otherAndYourProfileComponents/YourProfileComponents/YourProfileViewMainComponent.vue";
+import YourProfileViewMainComponent from "@/components/otherAndYourProfileComponents/yourProfileComponents/yourProfileViewMainComponent.vue";
 </script>
 
 <template>
