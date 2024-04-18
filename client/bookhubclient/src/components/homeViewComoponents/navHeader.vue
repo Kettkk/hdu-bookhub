@@ -66,7 +66,4 @@ const go2YourProfile = () => {
         font-size: 0;
         line-height: 36px;
     }
-  .headerBtn{
-
-  }
 </style>
