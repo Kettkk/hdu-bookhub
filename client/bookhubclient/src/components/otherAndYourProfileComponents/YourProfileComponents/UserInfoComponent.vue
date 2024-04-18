@@ -12,7 +12,6 @@ const templeUsername = ref(username.value);
 
 const submitUserInfo = () => {
 
-
 }
 </script>
 
