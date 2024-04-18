@@ -2,7 +2,7 @@
 
 
 import YourProfileViewMainComponent
-  from "@/components/otherAndYourProfileComponents/yourProfileComponents/yourProfileViewMainComponent.vue";
+  from "@/components/otherAndYourProfileComponents/YourProfileComponents/yourProfileViewMainComponent.vue";
 import NavHeader from "@/components/homeViewComoponents/navHeader.vue";
 import HeaderSearchBox from "@/components/homeViewComoponents/headerSearchBox.vue";
 </script>
