@@ -1,8 +1,8 @@
 <script setup>
 
-import UserInfoComponent from "@/components/otherAndYourProfileComponents/YourProfileComponents/userInfoComponent.vue";
+import UserInfoComponent from "@/components/otherAndYourProfileComponents/yourProfileComponents/userInfoComponent.vue";
 import UserGoodInfoComponent
-    from "@/components/otherAndYourProfileComponents/YourProfileComponents/userGoodInfoComponent.vue";
+    from "@/components/otherAndYourProfileComponents/yourProfileComponents/userGoodInfoComponent.vue";
 </script>
 
 <template>
