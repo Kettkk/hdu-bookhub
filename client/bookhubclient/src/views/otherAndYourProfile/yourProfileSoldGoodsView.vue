@@ -3,6 +3,7 @@
 import PageHeaderComponent
   from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageHeaderComponent.vue";
 import PageMainComponent from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageMainComponent.vue";
+import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFooterComponent.vue";
 </script>
 
 <template>
@@ -16,7 +17,9 @@ import PageMainComponent from "@/components/otherAndYourProfileComponents/child3
       <PageMainComponent></PageMainComponent>
     </el-main>
 
-    <el-footer>Footer</el-footer>
+    <el-footer id="footerContainer">
+      <home-view-footer-component></home-view-footer-component>
+    </el-footer>
   </el-container>
 </div>
 </template>
@@ -30,6 +33,11 @@ import PageMainComponent from "@/components/otherAndYourProfileComponents/child3
 #mainContainer{
   background-color: #f6f8fa;
   width: 100%;
-  height: 800px;
+  height: 780px;
+}
+#footerContainer{
+  background-color: #f6f8fa;
+  width: 100%;
+  height: 80px;
 }
 </style>
