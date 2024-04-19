@@ -47,7 +47,6 @@
 .separator {
     height: 1px;
     background-color: #ccc;
-    margin-top: 10px;
     margin-bottom: 5px;
 }
 .container {

@@ -12,9 +12,9 @@ import PageMainGoodsComponent
 
 <style scoped>
 #GoodsWindowsContainer{
-  background-color: #bdd1e5;
+  background-color: #f6f8fa;
   width: 100%;
-  height: 650px;
+  height: 740px;
 }
 
 </style>

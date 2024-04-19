@@ -10,6 +10,7 @@ const email = ref('ketk03@outlook.com');
 const userCreateTime = ref('2021-10-10');
 const templeUsername = ref(username.value);
 
+
 const submitUserInfo = () => {
 
 }
@@ -21,7 +22,7 @@ const submitUserInfo = () => {
 
       <el-aside id="asideContainer">
         <div>
-          <el-avatar @click="dialogFormVisible = true" style="margin-top: 8px" shape="square" :size="135" :fit="fill" :src="squareUrl"/>
+          <el-avatar @click="dialogFormVisible = true" style="margin-top: 8px;cursor: pointer;" shape="square" :size="135" :fit="fill" :src="squareUrl"/>
         </div>
 
         <el-dialog v-model="dialogFormVisible" title="修改个人信息" width="800">

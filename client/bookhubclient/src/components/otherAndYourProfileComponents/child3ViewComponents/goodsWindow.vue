@@ -24,7 +24,7 @@ const props = defineProps({
     <div style="padding-top: 5px">
       <span><strong>{{props.good.name}}</strong></span>
       <br>
-      <span style="font-size: 20px;color: #5d85ad;padding-top: 8px"><strong>{{}}</strong></span>
+      <span style="font-size: 20px;color: #5d85ad;padding-top: 8px"><strong>{{props.good.price}} ¥</strong></span>
     </div>
   </el-card>
 
@@ -39,11 +39,12 @@ const props = defineProps({
   border-top: 1px solid #d9d8d8;
 }
 #window{
-  background-color: #8b9aa9;
+  background-color: #f6f8fa;
   width: 220px;
   height: 280px;
   margin-left: 20px;
-  margin-top: 25px;
+  margin-top: 40px;
+  cursor: pointer;
 }
 .image-container {
   width: 100%;

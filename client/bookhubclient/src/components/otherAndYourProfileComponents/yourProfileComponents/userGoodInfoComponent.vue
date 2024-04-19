@@ -3,19 +3,25 @@ import {Goods, Sell, SoldOut} from "@element-plus/icons-vue";
 import { ref } from 'vue';
 import router from "@/router/index.js";
 
-const goodsPublishedCount = ref(0);
-const goodsSoldCount = ref(0);
-const goodsSoldoutCount = ref(0);
+const goodsPublishedCount = ref(12);
+const goodsSoldCount = ref(12);
+const goodsSoldoutCount = ref(12);
 
 const go2SoldGoodsView = () => {
   router.push({name: 'soldGoodsView'});
+}
+const go2PublishedGoodsView = () => {
+  router.push({name: 'publishedGoodsView'});
+}
+const go2BroughtGoodsView = () => {
+  router.push({name: 'broughtGoodsView'});
 }
 </script>
 
 <template>
 <div>
   <el-container id="infoWindowContainer">
-    <div class="goodInfoWindow">
+    <div class="goodInfoWindow" @click="go2PublishedGoodsView">
       <div style="font-size: 30px;
       font-family: 'Apple Braille';
       color: #525252;
@@ -63,7 +69,7 @@ const go2SoldGoodsView = () => {
       </div>
     </div>
 
-    <div class="goodInfoWindow">
+    <div class="goodInfoWindow" @click="go2BroughtGoodsView">
       <div style="font-size: 30px;
       font-family: 'Apple Braille';
       color: #525252;
@@ -110,6 +116,7 @@ const go2SoldGoodsView = () => {
   border: 1px solid #d4d4d4;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 .goodInfoWindow:hover{
   background-color: #f3f3f3;

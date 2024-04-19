@@ -1,15 +1,19 @@
 <!--搜索栏开始-->
 <script setup>
     import { ref } from 'vue'
+    import router from '@/router/index.js'
     import { Search } from '@element-plus/icons-vue'
-    const input3 = ref('')
+    const input3 = ref('');
+
+    const go2homeView = () => {
+        router.push({name: 'home'})
+    }
+
 </script>
 <template>
     <div id="headerSearchBox" class="header-search-box">
         <div class="header-search">
-            <a href="http://localhost:8080/">
-                <img src="@/assets/userAvatars/HDUBookhub.png" class="logo" alt="logo" />
-            </a>
+          <img src="../../assets/HDUBookhub.png" class="logo" alt="logo" @click="go2homeView"/>
             <div class="search-box">
                 <div class="mt-4">
                     <el-input v-model="input3" style="max-width: 600px" placeholder="商品名称" class="input-with-select" size="large">
@@ -35,7 +39,8 @@
         box-sizing: border-box;
     }
     .logo {
-        max-height: 40px;
+      max-height: 40px;
+      cursor: pointer;
     }
     .search-box {
         float: right;
