@@ -1,10 +1,8 @@
 <script setup>
-
-
 import YourProfileViewMainComponent
   from "@/components/otherAndYourProfileComponents/yourProfileComponents/yourProfileViewMainComponent.vue";
-import NavHeader from "@/components/homeViewComoponents/navHeader.vue";
-import HeaderSearchBox from "@/components/homeViewComoponents/headerSearchBox.vue";
+import NavHeader from "@/components/homeViewComoponents/navHeaderComponent.vue";
+import HeaderSearchBox from "@/components/homeViewComoponents/headerSearchBoxComponent.vue";
 </script>
 
 <template>
@@ -19,7 +17,7 @@ import HeaderSearchBox from "@/components/homeViewComoponents/headerSearchBox.vu
         <your-profile-view-main-component></your-profile-view-main-component>
       </el-main>
 
-      <el-footer id="footerContainer">Footer</el-footer>
+      <el-footer id="footerContainer"><footer></footer></el-footer>
     </div>
   </div>
 </template>
