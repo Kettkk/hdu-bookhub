@@ -4,6 +4,8 @@ import NavHeaderComponent from "@/components/homeViewComoponents/navHeaderCompon
 import HeaderSearchBoxComponent from "@/components/homeViewComoponents/headerSearchBoxComponent.vue";
 import OtherInfoComponent
   from "@/components/otherAndYourProfileComponents/otherProfileComponents/otherInfoComponent.vue";
+import OtherPublishedGoodsComponent
+  from "@/components/otherAndYourProfileComponents/otherProfileComponents/otherPublishedGoodsComponent.vue";
 </script>
 
 <template>
@@ -16,6 +18,10 @@ import OtherInfoComponent
 
     <el-main id="MainContainer">
       <other-info-component></other-info-component>
+
+      <hr class="separator">
+
+      <other-published-goods-component></other-published-goods-component>
     </el-main>
 
     <el-footer id="footerContainer">Footer</el-footer>
@@ -24,6 +30,12 @@ import OtherInfoComponent
 </template>
 
 <style scoped>
+.separator {
+  margin: 5px 0;
+  border: none;
+  background-color: #f6f8fa;
+  border-top: 1px solid #d9d8d8;
+}
 #headerContainer{
   height: 136px;
   width: 100%;
@@ -31,8 +43,8 @@ import OtherInfoComponent
   background-color: #f6f8fa;
 }
 #MainContainer{
-  height: 600px;
-  background-color: #d0d3d7;
+  height: 1040px;
+  background-color: #f6f8fa;
 }
 #footerContainer{
   height: 80px;

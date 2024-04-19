@@ -21,7 +21,7 @@ import UserGoodInfoComponent
 
 <style scoped>
 #userInfoContainer{
-  height: 150px;
+  height: 140px;
   background-color: #f6f8fa;
 }
 #userGoodInfoComtainer{
