@@ -7,21 +7,21 @@ import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFo
 </script>
 
 <template>
-<div>
-  <el-container>
-    <el-header id="headerContainer">
-      <PageHeaderComponent></PageHeaderComponent>
-    </el-header>
+  <div>
+    <el-container>
+      <el-header id="headerContainer">
+        <PageHeaderComponent :pageTitle="'我发布的商品'"></PageHeaderComponent>
+      </el-header>
 
-    <el-main id="mainContainer">
-      <PageMainComponent></PageMainComponent>
-    </el-main>
+      <el-main id="mainContainer">
+        <PageMainComponent></PageMainComponent>
+      </el-main>
 
-    <el-footer id="footerContainer">
-      <home-view-footer-component></home-view-footer-component>
-    </el-footer>
-  </el-container>
-</div>
+      <el-footer id="footerContainer">
+        <home-view-footer-component></home-view-footer-component>
+      </el-footer>
+    </el-container>
+  </div>
 </template>
 
 <style scoped>
