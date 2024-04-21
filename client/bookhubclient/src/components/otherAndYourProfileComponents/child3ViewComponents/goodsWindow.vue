@@ -1,5 +1,7 @@
 <script setup>
 
+import router from "@/router/index.js";
+
 const props = defineProps({
   good: {
     type: Object,
@@ -7,10 +9,20 @@ const props = defineProps({
   }
 });
 
+const go2BuyGoodsView = () => {
+  console.log(props.good);
+  router.push({
+    name: "buyGoods",
+    params: {
+      good: props.good
+    }
+  });
+};
+
 </script>
 
 <template>
-<div id="window">
+<div id="window" @click="go2BuyGoodsView">
   <el-card style="max-width: 480px">
     <div class="image-container">
       <img
