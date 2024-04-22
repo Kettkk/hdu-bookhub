@@ -1,6 +1,9 @@
 ﻿<Properties StartupConfiguration="{224F94C7-2FF1-4A03-B14C-986A0CA549CD}|http">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Program.cs">
     <Files>
@@ -12,20 +15,13 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="bookHubServer" expanded="True">
-            <Node name="bookHubServer">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True">
-                  <Node name="MySql.Data" selected="True" />
-                </Node>
-              </Node>
+            <Node name="bookHubServer" expanded="True">
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
