@@ -1,15 +1,17 @@
 <script setup>
 import { ref } from 'vue';
+import PublishGoodsView from "@/views/tradeView/publishGoodsView.vue";
+
 
 const username = ref('Jay');
 const money = ref(1000);
 const value = ref(3.9);
 const squareUrl = ref('src/assets/userAvatars/Jay.jpg');
 const dialogFormVisible = ref(false);
+const dialogPublishGoodVisible = ref(false);
 const email = ref('ketk03@outlook.com');
 const userCreateTime = ref('2021-10-10');
 const templeUsername = ref(username.value);
-
 
 const submitUserInfo = () => {
 
@@ -92,7 +94,11 @@ const submitUserInfo = () => {
       <el-main id="mainContainer">
           <div style="display: flex">
             <el-container id="nameContainer">{{username}}</el-container>
-            <el-button size="large">发布商品</el-button>
+            <el-button size="large" @click="dialogPublishGoodVisible = true">发布商品</el-button>
+
+            <el-dialog v-model="dialogPublishGoodVisible" title="发布商品" width="1100">
+              <publish-goods-view></publish-goods-view>
+            </el-dialog>
           </div>
 
           <div style="display: flex">

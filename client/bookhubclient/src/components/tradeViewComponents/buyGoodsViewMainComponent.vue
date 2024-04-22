@@ -53,11 +53,17 @@ const goodDescription = '《JavaScript高级程序设计》:这是一本非常�
          </div>
        </div>
 
+
        <div id="goodDescriptionContainer">
-         <el-card style="max-width: 800px; min-height: 300px">
-           <template #header>商品描述</template>
-           {{goodDescription}}
-         </el-card>
+
+         <div id="scrollable-container">
+           <el-card style="max-width: 800px; min-height: 300px">
+             <template #header>商品描述</template>
+             {{goodDescription}}
+           </el-card>
+         </div>
+
+
        </div>
      </el-main>
 
@@ -130,5 +136,9 @@ const goodDescription = '《JavaScript高级程序设计》:这是一本非常�
   margin-top: 25px;
   margin-left: 50px;
   border-radius: 4px;
+}
+#scrollable-container{
+  height: 300px;
+  overflow-y: auto;
 }
 </style>

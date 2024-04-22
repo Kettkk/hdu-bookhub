@@ -1,10 +1,10 @@
 <script setup>
 import GoodsWindow from "@/components/otherAndYourProfileComponents/child3ViewComponents/goodsWindow.vue";
 import { ref, computed } from 'vue';
-import router from "@/router/index.js";
 
 const goodsPerPage = 12; // 每页显示的商品数量
 const currentPage = ref(1); // 当前页码
+
 
 const goodsList = [
   {
