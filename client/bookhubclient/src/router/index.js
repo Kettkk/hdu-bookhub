@@ -39,11 +39,7 @@ const router = createRouter({
       name:'buyGoods',
       component:()=>import('@/views/tradeView/buyGoodsView.vue')
     },
-    {
-      path:'/publishGoods',
-      name:'publishGoods',
-      component:()=>import('@/views/tradeView/publishGoodsView.vue')
-    }
+
 
   ]
 })

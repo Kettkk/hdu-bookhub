@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import PublishGoodsView from "@/views/tradeView/publishGoodsView.vue";
-
+import GoodImgUploader from "@/components/tradeViewComponents/goodImgUploader.vue";
+import { ElMessage } from 'element-plus'
 
 const username = ref('Jay');
 const money = ref(1000);
@@ -12,6 +12,20 @@ const dialogPublishGoodVisible = ref(false);
 const email = ref('ketk03@outlook.com');
 const userCreateTime = ref('2021-10-10');
 const templeUsername = ref(username.value);
+
+
+const price = ref('')
+const goodName = ref('')
+
+const closePublishDialog = () => {
+  dialogPublishGoodVisible.value = false;
+  ElMessage({
+    message: '发布成功',
+    type: 'success',
+    plain: true,
+  })
+}
+
 
 const submitUserInfo = () => {
 
@@ -96,10 +110,65 @@ const submitUserInfo = () => {
             <el-container id="nameContainer">{{username}}</el-container>
             <el-button size="large" @click="dialogPublishGoodVisible = true">发布商品</el-button>
 
+            <!-- 商品发布组件 -->
             <el-dialog v-model="dialogPublishGoodVisible" title="发布商品" width="1100">
-              <publish-goods-view></publish-goods-view>
+
+              <div>
+                <el-container>
+                  <el-aside>
+                    <el-container id="goodImgContainer">
+                      <good-img-uploader></good-img-uploader>
+                    </el-container>
+
+                    <div style="width: 300px;height: 100px;">
+                      <el-container id="priceContainer">
+                        <el-container style="margin-top: 5px;margin-left: 5px">商品价格</el-container>
+                        <el-input
+                            v-model="price"
+                            style="width: 180px"
+                            maxlength="10"
+                            placeholder="输入商品价格"
+                            show-word-limit
+                            type="text"
+                            suffix-icon="el-icon-money"
+                        />
+                      </el-container>
+
+                      <el-container id="priceContainer">
+                        <el-container style="margin-top: 5px;margin-left: 5px">商品名</el-container>
+                        <el-input
+                            v-model="goodName"
+                            style="width: 180px"
+                            maxlength="10"
+                            placeholder="输入商品名"
+                            show-word-limit
+                            type="text"
+                            suffix-icon="el-icon-money"
+                        />
+                      </el-container>
+                    </div>
+
+
+                  </el-aside>
+
+                  <el-main>
+                    <div id="goodDescriptionContainer">
+                      <el-card style="min-height: 240px;max-height: 330px">
+                        <template #header>商品描述</template>
+                        <div id="scrollable-container" contenteditable="true">
+                        </div>
+                      </el-card>
+                    </div>
+
+                    <div id="publishBtnContainer">
+                      <el-button round :size="'large'" id="publishBtn" @click="closePublishDialog">发布商品</el-button>
+                    </div>
+                  </el-main>
+                </el-container>
+              </div>
             </el-dialog>
           </div>
+        <!-- 商品发布组件 -->
 
           <div style="display: flex">
             <div style="display: flex">
@@ -169,5 +238,52 @@ const submitUserInfo = () => {
   justify-content: space-between;
   padding-top: 35px;
   padding-left: 860px;
+}
+#priceContainer{
+  margin-top: 25px;
+  margin-left: 50px;
+  font-size: 15px;
+  font-family: 'Apple Braille';
+  box-shadow: 0px 2px 4px rgba(0, 0.1, 0.1, 0.1);
+  color: #3d3939;
+  display: flex;
+}
+#goodImgContainer{
+  width: 260px;
+  height: 260px;
+  background-color: #f6f8fa;
+  margin-top: 25px;
+  margin-left: 35px;
+  border-radius: 4px
+}
+#goodDescriptionContainer{
+  height: 260px;
+  width: 650px;
+  background-color: #e9e9ea;
+  margin-top: 5px;
+  margin-left: 50px;
+  border-radius: 4px;
+}
+#publishBtnContainer{
+  margin-top: 70px;
+  margin-left: 480px;
+}
+#publishBtn{
+  width: 200px;
+  height: 50px;
+  background-color: #3d3939;
+  color: #f6f8fa;
+}
+#scrollable-container{
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.avatar-uploader .avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
 }
 </style>
