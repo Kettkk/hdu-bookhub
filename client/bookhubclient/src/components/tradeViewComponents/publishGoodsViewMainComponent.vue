@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import GoodImgUploader from "@/components/tradeViewComponents/goodImgUploader.vue";
 
 const price = ref('')
 
@@ -13,7 +14,7 @@ const goodName = ref('')
   <el-container>
     <el-aside>
       <el-container id="goodImgContainer">
-
+        <good-img-uploader></good-img-uploader>
       </el-container>
 
       <div style="width: 300px;height: 100px;">
@@ -79,7 +80,7 @@ const goodName = ref('')
   height: 260px;
   background-color: #f6f8fa;
   margin-top: 25px;
-  margin-left: 50px;
+  margin-left: 35px;
   border-radius: 4px
 }
 #goodDescriptionContainer{
