@@ -39,8 +39,16 @@ const router = createRouter({
       name:'buyGoods',
       component:()=>import('@/views/tradeView/buyGoodsView.vue')
     },
-
-
+    {
+      path:'/chatRoom',
+      name:'chatRoom',
+      component:()=>import('@/views/chatView.vue')
+    },
+    {
+      path:'/assistant',
+      name:'assistant',
+      component:()=>import('@/views/assistantView.vue')
+    }
   ]
 })
 

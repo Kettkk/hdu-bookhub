@@ -6,6 +6,13 @@ const go2YourProfile = () => {
   router.push({name: 'userProfile'});
 }
 
+const goToChatRoom = () =>{
+    router.push('chatRoom')
+}
+
+const goToAssistant = () =>{
+    router.push('assistant')
+}
 </script>
 <template>
     <div id="navHeader" class="nav-header-box">
@@ -18,9 +25,9 @@ const go2YourProfile = () => {
 
               <el-button color="#e2c8ca" :dark="true" plain link>登录</el-button>
               <el-button color="#e2c8ca" :dark="true" plain link>注册</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
+              <el-button @click="goToChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
               <el-button @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
+              <el-button @click="goToAssistant" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
               <el-button color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
 
             </div>
