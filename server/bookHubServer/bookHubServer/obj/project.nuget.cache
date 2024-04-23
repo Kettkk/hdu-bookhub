@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DW1Tbpda0ZawyBe2pHnm8/wFv/iFBFUUHuCJrczzNssqWed9SQAt5cuHWdeeiXsj8E8f2MQOxBWHZivW69ESWQ==",
+  "dgSpecHash": "8viEWocQl8h1/X8UxUgpE9TFmnYyUFLM2ELTfgLk7XSuQQXaelM8KEFgOGo9HJCMOljHFCeTuFTpBjg+APGS5w==",
   "success": true,
-  "projectFilePath": "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj",
+  "projectFilePath": "/Users/fantant/Documents/DevFile/gitProjet/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj",
   "expectedPackageFiles": [
     "/Users/fantant/.nuget/packages/bouncycastle.cryptography/2.2.1/bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "/Users/fantant/.nuget/packages/google.protobuf/3.25.1/google.protobuf.3.25.1.nupkg.sha512",

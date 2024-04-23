@@ -2719,11 +2719,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj",
+      "projectUniqueName": "/Users/fantant/Documents/DevFile/gitProjet/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj",
       "projectName": "bookHubServer",
-      "projectPath": "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj",
+      "projectPath": "/Users/fantant/Documents/DevFile/gitProjet/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj",
       "packagesPath": "/Users/fantant/.nuget/packages/",
-      "outputPath": "/Users/fantant/Projects/bookHubServer/bookHubServer/obj/",
+      "outputPath": "/Users/fantant/Documents/DevFile/gitProjet/hdu-bookhub/server/bookHubServer/bookHubServer/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/fantant/.nuget/NuGet/NuGet.Config"

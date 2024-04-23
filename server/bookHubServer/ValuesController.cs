@@ -40,7 +40,7 @@ namespace bookHubServer.Controllers
                 int userID = 1;
                 string username = "ketk3";
                 string password = "klalala";
-                string email = "ketk@outlook.com";
+                string email = "ketk3@outlook.com";
                 double money = 0.35;
                 double star = 4.6;
                 DateTime createTime = DateTime.Now;
