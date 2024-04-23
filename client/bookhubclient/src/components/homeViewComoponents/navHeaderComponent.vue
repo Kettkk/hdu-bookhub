@@ -17,7 +17,7 @@ const goToAssistant = () =>{
 
 //跨域测试
 const test = () => {
-  axios.get('http://localhost:8080/api/test').then(res => {
+  axios.get('http://bkhb.site:5062/api/test').then(res => {
     console.log(res.data);
   }).catch(err => {
     console.log(err);
