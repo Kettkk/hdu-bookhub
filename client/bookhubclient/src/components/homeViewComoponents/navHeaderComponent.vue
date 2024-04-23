@@ -17,7 +17,7 @@ const goToAssistant = () =>{
 
 //跨域测试 post
 const test = () => {
-    axios.post('http://bkhb.site:5062/api/test', {
+    axios.post('https://localhost:7000/api/Values/api/test', {
 
     }).then(res => {
         console.log(res);
