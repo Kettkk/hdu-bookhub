@@ -17,7 +17,7 @@ const goToAssistant = () =>{
 
 //跨域测试 post
 const test = () => {
-    axios.post('5062/api/Values/api/test', {
+    axios.post('http//:101.34.70.172:5062/api/Values/api/test', {
 
     }).then(res => {
         console.log(res);
