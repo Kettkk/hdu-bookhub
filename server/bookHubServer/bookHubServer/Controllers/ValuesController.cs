@@ -29,6 +29,7 @@ namespace bookHubServer.Controllers
 
         // POST api/values
         [HttpPost]
+        [Route("api/test")]
         public IActionResult Post()
         {
             try
