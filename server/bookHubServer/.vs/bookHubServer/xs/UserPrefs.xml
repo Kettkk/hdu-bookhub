@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{224F94C7-2FF1-4A03-B14C-986A0CA549CD}|http">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Properties/launchSettings.json">
+    <Files>
+      <File FileName="bookHubServer/Program.cs" Line="8" Column="1" />
+      <File FileName="bookHubServer/ConfigFile/appsettings.json" />
+      <File FileName="bookHubServer/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="bookHubServer/Controllers/ValuesController.cs" Line="18" Column="40" />
+      <File FileName="bookHubServer/Tool/ConfigureTool.cs" />
+      <File FileName="bookHubServer/ConfigFile/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="bookHubServer/ConfigFile/bookHubServer.http" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="bookHubServer">
+            <Node name="bookHubServer" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="ConfigFile" expanded="True">
+                <Node name="appsettings.json" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="launchSettings.json" selected="True" />
+              </Node>
+              <Node name="Tool" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
