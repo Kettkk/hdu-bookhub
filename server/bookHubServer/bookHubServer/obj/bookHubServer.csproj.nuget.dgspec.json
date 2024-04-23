@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj": {}
+  },
+  "projects": {
+    "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj",
+        "projectName": "bookHubServer",
+        "projectPath": "/Users/fantant/Projects/bookHubServer/bookHubServer/bookHubServer.csproj",
+        "packagesPath": "/Users/fantant/.nuget/packages/",
+        "outputPath": "/Users/fantant/Projects/bookHubServer/bookHubServer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fantant/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.18, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
