@@ -1,6 +1,7 @@
 <!--顶部通栏开始-->
 <script setup>
 import router from "@/router/index.js";
+import axios from "axios";
 
 const go2YourProfile = () => {
   router.push({name: 'userProfile'});
@@ -12,6 +13,15 @@ const goToChatRoom = () =>{
 
 const goToAssistant = () =>{
     router.push('assistant')
+}
+
+//跨域测试
+const test = () => {
+  axios.get('http://localhost:8080/api/test').then(res => {
+    console.log(res.data);
+  }).catch(err => {
+    console.log(err);
+  })
 }
 </script>
 <template>
@@ -28,7 +38,7 @@ const goToAssistant = () =>{
               <el-button @click="goToChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
               <el-button @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
               <el-button @click="goToAssistant" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
+              <el-button @click="test" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
 
             </div>
         </div>
