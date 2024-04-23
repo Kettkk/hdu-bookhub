@@ -15,13 +15,15 @@ const goToAssistant = () =>{
     router.push('assistant')
 }
 
-//跨域测试
+//跨域测试 post
 const test = () => {
-  axios.get('http://bkhb.site:5062/api/test').then(res => {
-    console.log(res.data);
-  }).catch(err => {
-    console.log(err);
-  })
+    axios.post('http://bkhb.site:5062/api/test', {
+
+    }).then(res => {
+        console.log(res);
+    }).catch(err => {
+        console.log(err);
+    })
 }
 </script>
 <template>
