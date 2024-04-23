@@ -16,8 +16,8 @@ export default defineConfig({
     host:'0.0.0.0',
     port:8080,
     proxy:{
-      '/5152':{
-        target:'http://101.34.70.172:5152',
+      '/5062':{
+        target:'http://101.34.70.172:5062',
         changeOrigin:true
       }
     }
