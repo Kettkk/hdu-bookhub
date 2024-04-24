@@ -8,7 +8,7 @@ namespace bookHubServer.Tool;
 
 public class TokenTool
 {
-    public static string GenerateToken(User user)
+    public static string GenerateToken(TokenClaim tokenClaim)
     {
         IConfiguration configuration;
 
@@ -22,10 +22,10 @@ public class TokenTool
 
         Claim[] claims = new Claim[]
         {
-               new Claim("userID",user.userID.ToString()),
-               new Claim("username",user.username),
-               new Claim("email",user.email),
-               new Claim("password",user.password)
+               new Claim("userID",tokenClaim.userID.ToString()),
+               new Claim("username",tokenClaim.username),
+               new Claim("email",tokenClaim.email),
+               new Claim("password",tokenClaim.password)
         };
 
         //生成数字签名

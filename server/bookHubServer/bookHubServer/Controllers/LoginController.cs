@@ -11,9 +11,15 @@ namespace bookHubServer.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        
+        public class LoginData
+        {
+            public string username { get; set; }
+            public string password { get; set; }
+        }
+
         [HttpPost]
-     
-        public IActionResult Login(User user)
+        public IActionResult Login([FromBody]LoginData loginData)
         {
             try
             {
@@ -22,7 +28,7 @@ namespace bookHubServer.Controllers
                 connection.Open();
 
                 MySqlCommand mySqlCommand_check = new MySqlCommand("SELECT COUNT(*) FROM User WHERE username=@username", connection);
-                mySqlCommand_check.Parameters.AddWithValue("@username", user.username);
+                mySqlCommand_check.Parameters.AddWithValue("@username", loginData.username);
               
                 int count = Convert.ToInt32(mySqlCommand_check.ExecuteScalar());
 
@@ -32,21 +38,43 @@ namespace bookHubServer.Controllers
                 }
                 else
                 {
-                    MySqlCommand mySqlCommand_verify = new MySqlCommand("SELECT COUNT(*) FROM User WHERE username=@username AND password=@password", connection);
-                    mySqlCommand_verify.Parameters.AddWithValue("@username",user.username);
-                    mySqlCommand_verify.Parameters.AddWithValue("@password",user.password);
+                    MySqlCommand mySqlCommand_verify = new MySqlCommand("SELECT userID,username,email,password FROM User WHERE username=@username AND password=@password", connection);
+                    mySqlCommand_verify.Parameters.AddWithValue("@username",loginData.username);
+                    mySqlCommand_verify.Parameters.AddWithValue("@password",loginData.password);
 
-                    int res = Convert.ToInt32(mySqlCommand_verify.ExecuteScalar());
 
-                    if(res == 0)
+                    MySqlDataReader reader = mySqlCommand_verify.ExecuteReader();
+
+                    TokenClaim tokenClaim = new TokenClaim();
+                    if(reader.HasRows)
                     {
-                        return StatusCode(500, "wrong password");
+                        while (reader.Read())
+                        { 
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    tokenClaim.userID = (int)reader[i];
+                                }else if (i == 1)
+                                {
+                                    tokenClaim.username = (string)reader[i];
+                                }else if (i == 2)
+                                {
+                                    tokenClaim.email = (string)reader[i];
+                                }
+                                else
+                                {
+                                    tokenClaim.password = (string)reader[i];
+                                }
+                            }
+                        }
+                        return Ok(TokenTool.GenerateToken(tokenClaim));
                     }
                     else
                     {
-                        return Ok(TokenTool.GenerateToken(user));
+                        return StatusCode(500, "wrong password");
                     }
-                   
+                                  
                 }
 
             }

@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bookHubServer\\Controllers",
+    "\\bookHubServer\\Model"
   ],
   "SelectedNode": "\\bookHubServer.sln",
   "PreviewInSolutionExplorer": false

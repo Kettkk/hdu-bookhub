@@ -9,11 +9,16 @@ namespace bookHubServer.Controllers
     [ApiController]
     public class RegisterController : ControllerBase
     {
+        
+        public class RegisterData
+        {
+            public string username { get; set; }
+            public string email { get; set; }
+            public string password { get; set; }
+        }
+
         [HttpPost]
-
-
-
-        public IActionResult addUser(User user)
+        public IActionResult addUser([FromBody]RegisterData registerData)
         {
             try
             {
@@ -22,11 +27,12 @@ namespace bookHubServer.Controllers
                 connection.Open();
 
                 MySqlCommand mySqlCommand_check = new MySqlCommand("SELECT COUNT(*) FROM User WHERE username=@username", connection);
-                mySqlCommand_check.Parameters.AddWithValue("@username", user.username);
+                mySqlCommand_check.Parameters.AddWithValue("@username", registerData.username);
                 int count = Convert.ToInt32(mySqlCommand_check.ExecuteScalar());
 
                 if (count == 0)
                 {
+                    User user = new User();
                     user.userID = UserIDTool.GetMaxUserID() + 1;
                     user.money = 0;
                     user.star = 0;
@@ -38,9 +44,9 @@ namespace bookHubServer.Controllers
                         connection
                     );
                     mySqlCommand_insert.Parameters.AddWithValue("@userID", user.userID);
-                    mySqlCommand_insert.Parameters.AddWithValue("@username", user.username);
-                    mySqlCommand_insert.Parameters.AddWithValue("@email", user.email);
-                    mySqlCommand_insert.Parameters.AddWithValue("@password", user.password);
+                    mySqlCommand_insert.Parameters.AddWithValue("@username", registerData.username);
+                    mySqlCommand_insert.Parameters.AddWithValue("@email", registerData.email);
+                    mySqlCommand_insert.Parameters.AddWithValue("@password",registerData.password);
                     mySqlCommand_insert.Parameters.AddWithValue("@money", user.money);
                     mySqlCommand_insert.Parameters.AddWithValue("@star", user.star);
                     mySqlCommand_insert.Parameters.AddWithValue("@createTime", user.createTime);
