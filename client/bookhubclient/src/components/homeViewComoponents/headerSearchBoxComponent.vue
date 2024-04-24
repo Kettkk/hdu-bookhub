@@ -1,28 +1,30 @@
 <!--搜索栏开始-->
 <script setup>
     import { ref } from 'vue'
-    import router from '@/router/index.js'
     import { Search } from '@element-plus/icons-vue'
-    const input3 = ref('');
-
-    const go2homeView = () => {
-        router.push({name: 'home'})
+    import router from "@/router/index.js";
+    const input3 = ref('')
+    const go2home = () => {
+        if (router.currentRoute.value.name === 'home') {
+            window.location.reload();
+        } else {
+            router.push({ name: 'home' });
+        }
     }
-
 </script>
 <template>
     <div id="headerSearchBox" class="header-search-box">
         <div class="header-search">
-          <img src="../../assets/HDUBookhub.png" class="logo" alt="logo" @click="go2homeView"/>
-            <div class="search-box">
-                <div class="mt-4">
-                    <el-input v-model="input3" style="max-width: 600px" placeholder="商品名称" class="input-with-select" size="large">
-                        <template #append>
-                            <el-button :icon="Search" />
-                        </template>
-                    </el-input>
+            <img src="@/assets/HDUBookhub.png" class="logo" alt="logo" @click = "go2home"/>
+                <div class="search-box">
+                    <div class="mt-4">
+                        <el-input v-model="input3" style="max-width: 600px" placeholder="商品名称" class="input-with-select" size="large">
+                            <template #append>
+                                <el-button :icon="Search" />
+                            </template>
+                        </el-input>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </template>
@@ -39,8 +41,8 @@
         box-sizing: border-box;
     }
     .logo {
-      max-height: 40px;
-      cursor: pointer;
+        max-height: 40px;
+        cursor: pointer;
     }
     .search-box {
         float: right;

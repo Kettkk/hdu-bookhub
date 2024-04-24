@@ -1,3 +1,4 @@
+<!--尾部友情链接和版权-->
 <script lang="ts" setup>
 
 </script>
@@ -41,17 +42,26 @@
             </el-breadcrumb-item>
         </el-breadcrumb>
     </div>
+    <div class="copyright">
+        <span>Copyright © 2024 HDU Bookhub</span>
+    </div>
 </template>
 
 <style scoped>
 .separator {
     height: 1px;
     background-color: #ccc;
+    margin-top: 10px;
     margin-bottom: 5px;
 }
 .container {
     width: 1200px;
     padding: 20px;
+    margin: 0 auto;
+}
+.copyright {
+    height: 45px;
+    width: 254px;
     margin: 0 auto;
 }
 </style>
