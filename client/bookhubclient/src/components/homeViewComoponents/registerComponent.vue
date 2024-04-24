@@ -53,6 +53,17 @@ const submitRegisterForm = () => {
         if (valid) {
             console.log('注册信息正确，可以提交到服务器:', registerForm.value);
             dialogVisible.value = false; // 关闭对话框
+
+          const registerInfo = {
+            username: registerForm.value.username,
+            email: registerForm.value.email,
+            password: registerForm.value.password,
+          };
+
+          console.log(registerInfo)
+
+          test(registerInfo);
+
             // 清空表单
             registerForm.value.username = '';
             registerForm.value.email = '';
@@ -60,23 +71,25 @@ const submitRegisterForm = () => {
             registerForm.value.confirmPassword = '';
             registerForm.value.agreeTerms = false;
 
-          const registerInfo = {
-                username: registerForm.value.username,
-                email: registerForm.value.email,
-                password: registerForm.value.password,
-          };
 
-          console.log(registerInfo)
-
-          axios.post('http://bkhb.site:5062/api/Register', {
-            registerInfo
-          })
 
 
         } else {
             console.log('表单验证未通过');
             return false;
         }
+    });
+};
+
+const test = (registerInfo) => {
+    axios.post('http://bkhb.site:5062/api/Register', {
+      registerInfo
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };
 
