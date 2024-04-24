@@ -3,6 +3,7 @@
 import router from "@/router/index.js";
 import LoginComponent from "@/components/homeViewComoponents/loginComponent.vue";
 import RegisterComponent from "@/components/homeViewComoponents/registerComponent.vue";
+import axios from "axios";
 
 const go2YourProfile = () => {
   router.push({name: 'userProfile'});
@@ -14,6 +15,15 @@ const go2ChatRoom = () => {
 
 const go2Assistant = () => {
   router.push({name: 'assistant'});
+}
+
+//跨域测试
+const test = () => {
+  axios.get('http://bkhb.site:5062/api/Values/5').then((response) => {
+    console.log(response);
+  }).catch((error) => {
+    console.log(error);
+  });
 }
 </script>
 
@@ -32,7 +42,7 @@ const go2Assistant = () => {
                 <el-button class="button" @click="go2ChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
                 <el-button class="button" @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
                 <el-button class="button" @click="go2Assistant" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
-                <el-button class="button" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
+                <el-button class="button" @click="test" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
             </div>
         </div>
     </div>
