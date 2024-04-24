@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/userProfile/soldGoods',
       name: 'soldGoodsView',
-      component: () => import('@/views/otherAndYourProfile/yourProfileSoldGoodsView.vue')
+      component: () => import('@/views/otherAndYourProfile/child3Views/yourProfileSoldGoodsView.vue')
     }
 
   ]

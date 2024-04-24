@@ -1,6 +1,7 @@
 <script setup>
 import GoodsWindow from "@/components/otherAndYourProfileComponents/child3ViewComponents/goodsWindow.vue";
 
+
 const goodsList = [
   {
     id: 1,

@@ -1,12 +1,14 @@
 <!--顶部通栏开始-->
-<script setup>
+<script setup lang="ts">
 import router from "@/router/index.js";
+import LoginComponent from "@/components/homeViewComoponents/loginComponent.vue";
+import RegisterComponent from "@/components/homeViewComoponents/registerComponent.vue";
 
 const go2YourProfile = () => {
   router.push({name: 'userProfile'});
 }
-
 </script>
+
 <template>
     <div id="navHeader" class="nav-header-box">
         <div class="header-wrap">
@@ -15,17 +17,18 @@ const go2YourProfile = () => {
                 <span>传承中华文明</span>
             </div>
             <div class="user-info-box clearfix">
-
-              <el-button color="#e2c8ca" :dark="true" plain link>登录</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>注册</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
-              <el-button @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
-              <el-button color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
-
+                <!--登录按钮-->
+                <login-component></login-component>
+                <!-- 注册按钮 -->
+                <register-component></register-component>
+                <el-button class="button" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
+                <el-button class="button" @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
+                <el-button class="button" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
+                <el-button class="button" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
             </div>
         </div>
     </div>
+
 </template>
 <style>
   .nav-header-box {
@@ -65,5 +68,9 @@ const go2YourProfile = () => {
         height: 36px;
         font-size: 0;
         line-height: 36px;
+    }
+    .button {
+        margin-left: 12px;
+        padding: 2px;
     }
 </style>
