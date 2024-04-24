@@ -66,13 +66,11 @@ const submitRegisterForm = () => {
                 password: registerForm.value.password,
           };
 
+          console.log(registerInfo)
+
           axios.post('http://bkhb.site:5062/api/Register', {
             registerInfo
-          }).then((res) => {
-            console.log(res);
-          }).catch((err) => {
-            console.log(err);
-          });
+          })
 
 
         } else {
