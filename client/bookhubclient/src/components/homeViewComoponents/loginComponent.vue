@@ -30,6 +30,7 @@ const submitLoginForm = () => {
                 username: loginForm.value.username,
                 password: loginForm.value.password
             };
+            console.log(loginInfo);
             test(loginInfo);
             loginForm.value.username = '';
             loginForm.value.password = '';
@@ -55,10 +56,13 @@ const handleClose = () => {
 };
 
 const test = (loginInfo) => {
-    axios.post('http://101.34.70.172:5062/api/Values/api/test', loginInfo)
+    axios.post('http://bkhb.site:5062/api/Login', {
+      loginInfo
+    })
         .then(res => {
             console.log(res);
             const jwt = res.data;
+            console.log(jwt);
             // 设置 Cookie
             document.cookie = `jwt1=${jwt}; expires=${new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
         })

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 
 const dialogVisible = ref(false); // 控制对话框显示的状态
 const registerForm = ref({
@@ -58,6 +59,22 @@ const submitRegisterForm = () => {
             registerForm.value.password = '';
             registerForm.value.confirmPassword = '';
             registerForm.value.agreeTerms = false;
+
+          const registerInfo = {
+                username: registerForm.value.username,
+                email: registerForm.value.email,
+                password: registerForm.value.password,
+          };
+
+          axios.post('http://bkhb.site:5062/api/Register', {
+            registerInfo
+          }).then((res) => {
+            console.log(res);
+          }).catch((err) => {
+            console.log(err);
+          });
+
+
         } else {
             console.log('表单验证未通过');
             return false;
