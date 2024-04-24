@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj": {}
+    "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\bookHubServer.csproj": {}
   },
   "projects": {
-    "/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj": {
+    "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\bookHubServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj",
+        "projectUniqueName": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\bookHubServer.csproj",
         "projectName": "bookHubServer",
-        "projectPath": "/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/bookHubServer.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/obj/",
+        "projectPath": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\bookHubServer.csproj",
+        "packagesPath": "C:\\Users\\86159\\.nuget\\packages\\",
+        "outputPath": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\86159\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -74,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
