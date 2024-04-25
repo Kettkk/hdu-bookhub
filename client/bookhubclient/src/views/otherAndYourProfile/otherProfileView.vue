@@ -10,7 +10,7 @@ import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFo
 </script>
 
 <template>
-  <div class="common-layout">
+  <div class="common-layout" style="background-color: #f6f8fa">
 
     <div id="headerContainer">
       <nav-header-component></nav-header-component>
