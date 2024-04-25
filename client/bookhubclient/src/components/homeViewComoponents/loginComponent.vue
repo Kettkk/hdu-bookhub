@@ -56,7 +56,7 @@ const handleClose = () => {
 };
 
 const test = (loginInfo) => {
-    axios.post('http://bkhb.site:5062/api/Login', loginInfo)
+    axios.post('http://101.34.70.172:5062/api/Login', loginInfo)
         .then(res => {
             console.log(res);
             const jwt = res.data;

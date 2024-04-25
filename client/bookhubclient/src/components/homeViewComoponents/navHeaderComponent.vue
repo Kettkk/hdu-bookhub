@@ -19,7 +19,7 @@ const go2Assistant = () => {
 
 //跨域测试
 const test = () => {
-  axios.get('http://bkhb.site:5062/api/Values/5').then((response) => {
+  axios.get('http://101.34.70.172:5062/api/Values/5').then((response) => {
     console.log(response);
   }).catch((error) => {
     console.log(error);
