@@ -7,7 +7,7 @@ import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFo
 </script>
 
 <template>
-  <div>
+  <div style="background-color: #f6f8fa">
     <div id="headerContainer">
       <nav-header-component></nav-header-component>
       <header-search-box-component></header-search-box-component>

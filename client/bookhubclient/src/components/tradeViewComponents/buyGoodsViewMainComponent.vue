@@ -34,14 +34,14 @@ const go2otherProfileView = () => {
      </el-aside>
 
      <el-main>
-       <div @click="go2otherProfileView" id="sellerInfoContainer">
-          <div id="avatarContainer">
+       <div id="sellerInfoContainer">
+          <div @click="go2otherProfileView" id="avatarContainer">
             <el-avatar
                 src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
                 :size="'large'"
             />
           </div>
-          <div id="sellerNameAndStarsContainer">
+          <div @click="go2otherProfileView" id="sellerNameAndStarsContainer">
             <div style="display: flex;margin-top: 8px;">
               <div style="font-size: 12px;margin-top: 8px">用户名:&ensp;</div>
               {{sellerName}}
@@ -118,7 +118,6 @@ const go2otherProfileView = () => {
   background-color: #e9e9ea;
   margin-top: 25px;
   display: flex;
-  cursor: pointer;
 }
 #avatarContainer{
   height: 70px;
@@ -126,6 +125,7 @@ const go2otherProfileView = () => {
   background-color: #e9e9ea;
   padding-top: 10px;
   padding-left: 10px;
+  cursor: pointer;
 }
 #sellerNameAndStarsContainer{
   height: 70px;
@@ -136,6 +136,7 @@ const go2otherProfileView = () => {
   font-size: 22px;
   font-family: 'Apple Braille';
   color: #3d3939;
+  cursor: pointer;
 }
 #sendMessageBtn{
   margin-top: 10px;

@@ -6,6 +6,7 @@ import OtherInfoComponent
   from "@/components/otherAndYourProfileComponents/otherProfileComponents/otherInfoComponent.vue";
 import OtherPublishedGoodsComponent
   from "@/components/otherAndYourProfileComponents/otherProfileComponents/otherPublishedGoodsComponent.vue";
+import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFooterComponent.vue";
 </script>
 
 <template>
@@ -24,7 +25,9 @@ import OtherPublishedGoodsComponent
       <other-published-goods-component></other-published-goods-component>
     </el-main>
 
-    <el-footer id="footerContainer">Footer</el-footer>
+    <el-footer id="footerContainer">
+      <home-view-footer-component></home-view-footer-component>
+    </el-footer>
 
   </div>
 </template>
