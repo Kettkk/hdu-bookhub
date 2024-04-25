@@ -8,12 +8,12 @@ const goodDescription = '《JavaScript高级程序设计》:这是一本非常�
 
 const go2ChatView = () => {
   console.log('go2ChatView');
-  this.$router.push({name: 'chatRoom'});
+  this.$router.push('/chatRoom');
 }
 
 const go2otherProfileView = () => {
   console.log('go2otherProfileView');
-  this.$router.push({name: 'otherProfile'});
+  this.$router.push('/userProfile/otherProfile');
 }
 </script>
 
