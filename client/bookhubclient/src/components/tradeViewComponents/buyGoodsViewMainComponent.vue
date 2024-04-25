@@ -1,4 +1,5 @@
 <script setup>
+import router from "@/router/index.js";
 
 const bookName = '《JavaScript高级程序设计》';
 const sellerName = 'Jay';
@@ -8,12 +9,12 @@ const goodDescription = '《JavaScript高级程序设计》:这是一本非常�
 
 const go2ChatView = () => {
   console.log('go2ChatView');
-  this.$router.push('/chatRoom');
+  router.push('/chatRoom');
 }
 
 const go2otherProfileView = () => {
   console.log('go2otherProfileView');
-  this.$router.push('/userProfile/otherProfile');
+  router.push('/userProfile/otherProfile');
 }
 </script>
 
@@ -117,6 +118,7 @@ const go2otherProfileView = () => {
   background-color: #e9e9ea;
   margin-top: 25px;
   display: flex;
+  cursor: pointer;
 }
 #avatarContainer{
   height: 70px;
