@@ -82,9 +82,7 @@ const submitRegisterForm = () => {
 };
 
 const test = (registerInfo) => {
-    axios.post('http://bkhb.site:5062/api/Register', {
-      registerInfo
-    },
+    axios.post('http://bkhb.site:5062/api/Register', registerInfo,
     {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
