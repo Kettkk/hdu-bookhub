@@ -18,11 +18,6 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
-
-        builder.WithOrigins("http://bkhb.site:8080")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
     });
 });
 
