@@ -26,10 +26,10 @@ const submitLoginForm = () => {
     formRef.value.validate((valid) => {
         if (valid) {
             console.log('登录信息正确，可以提交服务器:', loginForm.value);
-            const loginInfo = "{" +
-                "username: " + loginForm.value.username + "," +
-                "password: " + loginForm.value.password +
-                "}";
+            const loginInfo = {
+                username: loginForm.value.username,
+                password: loginForm.value.password
+            };
             console.log(loginInfo);
             test(loginInfo);
             loginForm.value.username = '';
@@ -56,9 +56,7 @@ const handleClose = () => {
 };
 
 const test = (loginInfo) => {
-    axios.post('http://bkhb.site:5062/api/Login', {
-      loginInfo
-    })
+    axios.post('http://bkhb.site:5062/api/Login', loginInfo
         .then(res => {
             console.log(res);
             const jwt = res.data;
