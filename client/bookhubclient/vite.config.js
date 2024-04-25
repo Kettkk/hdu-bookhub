@@ -15,7 +15,6 @@ export default defineConfig({
   server:{
     host:'0.0.0.0',
     port:8080,
-    open:true,
     cors:true,
     proxy:{
       '/5062':{
