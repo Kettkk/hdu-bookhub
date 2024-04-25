@@ -1,4 +1,7 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.AspNetCore.Builder;
+using static System.Net.Mime.MediaTypeNames;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -13,7 +16,13 @@ builder.Services.AddCors(options =>
     {
         builder.WithOrigins("http://101.34.70.172:8080")
             .AllowAnyMethod()
-            .AllowAnyHeader();
+            .AllowAnyHeader()
+            .AllowCredentials();
+
+        builder.WithOrigins("http://bkhb.site:8080")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -25,6 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseCors("client");
 
