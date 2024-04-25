@@ -54,11 +54,11 @@ const submitRegisterForm = () => {
             console.log('注册信息正确，可以提交到服务器:', registerForm.value);
             dialogVisible.value = false; // 关闭对话框
 
-          const registerInfo = "{" +
-              "username: " + registerForm.value.username + "," +
-              "email: " + registerForm.value.email + "," +
-              "password: " + registerForm.value.password +
-              "}";
+          const registerInfo = {
+            username: registerForm.value.username,
+            email: registerForm.value.email,
+            password: registerForm.value.password
+          };
 
           console.log(registerInfo)
 
