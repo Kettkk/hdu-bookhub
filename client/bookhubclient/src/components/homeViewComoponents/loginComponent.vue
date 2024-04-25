@@ -26,10 +26,10 @@ const submitLoginForm = () => {
     formRef.value.validate((valid) => {
         if (valid) {
             console.log('登录信息正确，可以提交服务器:', loginForm.value);
-            const loginInfo = {
-                username: loginForm.value.username,
-                password: loginForm.value.password
-            };
+            const loginInfo = "{" +
+                "username: " + loginForm.value.username + "," +
+                "password: " + loginForm.value.password +
+                "}";
             console.log(loginInfo);
             test(loginInfo);
             loginForm.value.username = '';
