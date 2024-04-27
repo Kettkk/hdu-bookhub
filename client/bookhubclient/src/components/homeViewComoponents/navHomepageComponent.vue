@@ -26,7 +26,7 @@ const value = ref(3.7)
                 </div>
             </div>
             <!--公告栏内容开始-->
-            <div class="bulletinBoard-content">&nbsp;&nbsp;吃好了就睡，睡好了就吃</div>
+            <div class="bulletinBoard-content">吃好了就睡，睡好了就吃</div>
             <!--公告栏内容结束-->
         </div>
         <div class="list-bestUsers">
@@ -112,6 +112,8 @@ const value = ref(3.7)
 .bulletinBoard-content {
     height: 400px;
     border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
 }
 
 .list-bestUsers {

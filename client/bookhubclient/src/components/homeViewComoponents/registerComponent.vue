@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import { ElMessage } from 'element-plus'
 
 const dialogVisible = ref(false); // 控制对话框显示的状态
+const registerVisible = ref(true);
 const registerForm = ref({
     username: '',
     email: '',
@@ -90,6 +92,16 @@ const test = (registerInfo) => {
     })
     .then((response) => {
       console.log(response);
+
+      if (response.data === "500") {
+          ElMessage.error('用户名重复，请重新注册( •̥́ ˍ •̀ू )');
+      }
+      else {
+          ElMessage({
+              message: '注册成功ヾ(@^▽^@)ノ',
+              type: 'success',
+          })
+      }
     })
     .catch((error) => {
       console.log(error);
@@ -111,7 +123,7 @@ const handleClose = () => {
 </script>
 
 <template>
-    <el-button class="button" color="#e2c8ca" :dark="true" plain link @click="dialogVisible = true">
+    <el-button v-show="registerVisible" class="button" color="#e2c8ca" :dark="true" plain link @click="dialogVisible = true">
         注册
     </el-button>
     <el-dialog

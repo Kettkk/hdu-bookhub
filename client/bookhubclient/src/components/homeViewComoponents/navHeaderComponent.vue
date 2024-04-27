@@ -3,7 +3,7 @@
 import router from "@/router/index.js";
 import LoginComponent from "@/components/homeViewComoponents/loginComponent.vue";
 import RegisterComponent from "@/components/homeViewComoponents/registerComponent.vue";
-import axios from "axios";
+import {ElMessage} from "element-plus";
 
 const go2YourProfile = () => {
   router.push({name: 'userProfile'});
@@ -17,14 +17,19 @@ const go2Assistant = () => {
   router.push({name: 'assistant'});
 }
 
-//跨域测试
-const test = () => {
-  axios.get('http://101.34.70.172:5062/api/Values/5').then((response) => {
-    console.log(response);
-  }).catch((error) => {
-    console.log(error);
-  });
-}
+//退出登录
+const logout = () => {
+    document.cookie = "jwt1=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    if (router.currentRoute.value.name === 'home') {
+        window.location.reload();
+    } else {
+        router.push({ name: 'home' });
+    }
+    ElMessage({
+        message: '已成功退出登录',
+        type: 'success',
+    });
+};
 </script>
 
 <template>
@@ -36,13 +41,13 @@ const test = () => {
             </div>
             <div class="user-info-box clearfix">
                 <!--登录按钮-->
-                <login-component></login-component>
+                <login-component :isLoginVisible></login-component>
                 <!-- 注册按钮 -->
                 <register-component></register-component>
                 <el-button class="button" @click="go2ChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
                 <el-button class="button" @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
                 <el-button class="button" @click="go2Assistant" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
-                <el-button class="button" @click="test" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
+                <el-button class="button" @click="logout" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
             </div>
         </div>
     </div>

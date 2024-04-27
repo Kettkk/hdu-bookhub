@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import {ElMessage} from "element-plus";
+
 
 const dialogVisible = ref(false); // 控制对话框显示的状态
+const loginVisible = ref(true);
 const loginForm = ref({
     username: '',
     password: '',
@@ -63,6 +66,18 @@ const test = (loginInfo) => {
             console.log(jwt);
             // 设置 Cookie
             document.cookie = `jwt1=${jwt}; expires=${new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+
+            if (res.data === "500") {
+                ElMessage.error('登录失败，请检查用户名或密码是否正确(╥﹏╥)');
+            }
+            else {
+                ElMessage({
+                    message: '登录成功٩(๑^o^๑)۶',
+                    type: 'success',
+                })
+                loginVisible.value = false;
+                registerVisible.value = false;
+            }
         })
         .catch(err => {
             console.error(err);
@@ -71,7 +86,7 @@ const test = (loginInfo) => {
 </script>
 
 <template>
-    <el-button class="button" color="#e2c8ca" :dark="true" plain link @click="dialogVisible = true">
+    <el-button v-show="loginVisible" class="button" color="#e2c8ca" :dark="true" plain link @click="dialogVisible = true">
         登录
     </el-button>
     <el-dialog
