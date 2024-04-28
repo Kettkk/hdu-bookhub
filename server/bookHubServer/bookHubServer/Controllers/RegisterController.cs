@@ -36,11 +36,12 @@ namespace bookHubServer.Controllers
                     user.userID = UserIDTool.GetMaxUserID() + 1;
                     user.money = 0;
                     user.star = 0;
+                    user.avatarImg = "";
                     user.createTime = DateTime.Now;
                     user.lastUpdateTime = DateTime.Now;
 
                     MySqlCommand mySqlCommand_insert = new MySqlCommand(
-                       "Insert into User (userID, username, password, email, money, star, createTime, lastUpdateTime) values(@userID, @username, @password, @email, @money, @star, @createTime, @lastUpdateTime)",
+                       "Insert into User (userID, username, password, email, money, star, avatarImg, createTime, lastUpdateTime) values(@userID, @username, @password, @email, @money, @star, @createTime, @lastUpdateTime)",
                         connection
                     );
                     mySqlCommand_insert.Parameters.AddWithValue("@userID", user.userID);
@@ -49,6 +50,7 @@ namespace bookHubServer.Controllers
                     mySqlCommand_insert.Parameters.AddWithValue("@password",registerData.password);
                     mySqlCommand_insert.Parameters.AddWithValue("@money", user.money);
                     mySqlCommand_insert.Parameters.AddWithValue("@star", user.star);
+                    mySqlCommand_insert.Parameters.AddWithValue("@avatarImg", user.avatarImg);
                     mySqlCommand_insert.Parameters.AddWithValue("@createTime", user.createTime);
                     mySqlCommand_insert.Parameters.AddWithValue("@lastUpdateTime", user.lastUpdateTime);
 
