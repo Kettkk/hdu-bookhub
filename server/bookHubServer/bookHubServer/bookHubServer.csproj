@@ -23,6 +23,7 @@
     <None Remove="Tool\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Posters\" />
     <Folder Include="ConfigFile\" />
     <Folder Include="Service\" />
   </ItemGroup>

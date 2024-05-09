@@ -1,20 +1,19 @@
 <!--中间导航栏首页内容-->
 <script lang="ts" setup>
-import { reactive, toRefs } from 'vue'
-
-const state = reactive({
-    circleUrl:
-        'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-    squareUrl:
-        'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
-})
-
-const { circleUrl } = toRefs(state)
-
-
 import { ref } from 'vue'
 
-const value = ref(3.7)
+import axios from "axios";
+
+const goldUserList = ref([])
+
+//获取金牌用户列表
+axios.get('http://localhost:5062/api/HomePage/GoldUser').then(response => {
+    console.log(response.data)
+    goldUserList.value = response.data;
+}).catch(error => {
+    console.log(error)
+});
+
 </script>
 
 <template>
@@ -26,7 +25,7 @@ const value = ref(3.7)
                 </div>
             </div>
             <!--公告栏内容开始-->
-            <div class="bulletinBoard-content">吃好了就睡，睡好了就吃</div>
+            <div class="bulletinBoard-content">该网站仍处于测试阶段...<br><br>若发现网站有任何问题，请通过意见反馈栏内的邮箱和电话来联系我们。<br><br>十分感谢！</div>
             <!--公告栏内容结束-->
         </div>
         <div class="list-bestUsers">
@@ -36,48 +35,17 @@ const value = ref(3.7)
                 </div>
             </div>
             <!--金牌用户内容开始-->
-            <div class="bestUsers-content">
-                <div class="block">
+            <div class="bestUsers-content" v-if="goldUserList && goldUserList.length > 0" >
+                <div class="block" v-for="goldUser in goldUserList" :key="goldUser.userId">
                     <div class="block-picture">
-                        <el-avatar :src="circleUrl" />
+                        <el-avatar :src="goldUser.avatarURL" />
                     </div>
-                    <div class="block-text">jkhdsf</div>
-                    <el-rate
-                        v-model="value"
-                        size="small"
-                        disabled
-                        show-score
-                        text-color="#ff9900"
-                        score-template="{value}"
-                    />
-                </div>
-                <div class="block">
-                    <div class="block-picture">
-                        <el-avatar :src="circleUrl" />
+
+                    <div class="block-text">{{ goldUser.userName }}</div>
+
+                    <div class="block-score">
+                        <el-rate v-model="goldUser.star" disabled text-color="#ff9900" />
                     </div>
-                    <div class="block-text">jkhdsf</div>
-                    <el-rate
-                        v-model="value"
-                        size="small"
-                        disabled
-                        show-score
-                        text-color="#ff9900"
-                        score-template="{value}"
-                    />
-                </div>
-                <div class="block">
-                    <div class="block-picture">
-                        <el-avatar :src="circleUrl" />
-                    </div>
-                    <div class="block-text">jkhdsf</div>
-                    <el-rate
-                        v-model="value"
-                        size="small"
-                        disabled
-                        show-score
-                        text-color="#ff9900"
-                        score-template="{value}"
-                    />
                 </div>
             </div>
             <!--金牌用户内容结束-->
@@ -99,16 +67,19 @@ const value = ref(3.7)
 .list-bulletinBoard {
     width: 200px;
 }
+
 .bulletinBoard-titleBox {
     height: 36px;
     line-height: 36px;
     background-color: #8c222c;
 }
+
 .bulletinBoard-text {
     color: white;
     width: 50px;
     margin: 0 auto;
 }
+
 .bulletinBoard-content {
     height: 400px;
     border: 2px solid #ddd;
@@ -119,34 +90,40 @@ const value = ref(3.7)
 .list-bestUsers {
     width: 200px;
 }
+
 .bestUsers-titleBox {
     height: 36px;
     line-height: 36px;
     background-color: #8c222c;
 }
+
 .bestUsers-text {
     color: white;
     width: 64px;
     margin: 0 auto;
 }
+
 .bestUsers-content {
-    height: 400px;
+    height: 285px;
     border: 2px solid #ddd;
 }
 
 .list-feedback {
     width: 200px;
 }
+
 .feedback-titleBox {
     height: 36px;
     line-height: 36px;
     background-color: #8c222c;
 }
+
 .feedback-text {
     color: white;
     width: 64px;
     margin: 0 auto;
 }
+
 .feedback-content {
     height: 400px;
     border: 2px solid #ddd;
@@ -154,19 +131,22 @@ const value = ref(3.7)
 
 .block {
     margin-top: 5px;
-    height: 40px;
+    height: 50px;
 }
+
 .block-picture {
-    margin-left: 3px;
+    margin: 6px 8px 6px 8px;
     height: 40px;
     width: 40px;
     line-height: 40px;
     float: left;
 }
+
 .block-text {
-    margin-left: 3px;
+    margin-top: 3px;
     height: 20px;
     line-height: 22px;
     float: left;
 }
+
 </style>
