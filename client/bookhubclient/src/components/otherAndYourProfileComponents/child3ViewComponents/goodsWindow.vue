@@ -1,7 +1,6 @@
 <script setup>
-
-import router from "@/router/index.js";
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const props = defineProps({
   good: {
     type: Object,
@@ -13,9 +12,7 @@ const go2BuyGoodsView = () => {
   console.log(props.good);
   router.push({
     name: "buyGoods",
-    params: {
-      parchpurchaseBookID: 1
-    }
+    query: { bookID:props.good.bookID }
   });
 };
 

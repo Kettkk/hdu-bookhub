@@ -1,19 +1,28 @@
 <script setup>
 import router from "@/router/index.js";
 import axios from "axios";
-import { reactive,ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const information = reactive({});
-const purchaseBookID =ref('');
 
-purchaseBookID.value=route.params.purchaseBookID;
+const information = reactive({
+  sellerName: '',
+  sellerAvatar: '',
+  bookName: '',
+  price: '',
+  goodDescription: '',
+  bookImg: ''
+});
+const purchaseBookID = ref('');
 
+purchaseBookID.value = route.query.bookID
 console.log(purchaseBookID.value)
-console.log(route.params.purchaseBookID)
 
-axios.post('http://localhost:5062/api/PurchasePage',  { purchaseBookID: purchaseBookID.value })
+const url = 'http://localhost:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
+
+
+axios.post(url)
   .then(function (response) {
     information.sellerName = response.data.sellername;
     information.value = response.data.sellerscore;
@@ -22,7 +31,7 @@ axios.post('http://localhost:5062/api/PurchasePage',  { purchaseBookID: purchase
     information.price = response.data.price;
     information.goodDescription = response.data.description;
     information.bookImg = response.data.imgURL;
-    console.log(response);
+    console.log(response.data);
   })
   .catch(function (error) {
     console.log(error);
@@ -47,9 +56,7 @@ const go2otherProfileView = () => {
     <div style="display: flex">
       <el-aside>
         <div id="goodImgContainer">
-          <img
-            :src="information.bookImg"
-            alt="书籍图片" width="300px" height="300px">
+          <img :src="information.bookImg" alt="书籍图片" width="300px" height="300px">
         </div>
 
         <div id="goodPriceContainer">价格&emsp;
