@@ -41,7 +41,7 @@ const logout = () => {
             </div>
             <div class="user-info-box clearfix">
                 <!--登录按钮-->
-                <login-component :isLoginVisible></login-component>
+                <login-component></login-component>
                 <!-- 注册按钮 -->
                 <register-component></register-component>
                 <el-button class="button" @click="go2ChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
