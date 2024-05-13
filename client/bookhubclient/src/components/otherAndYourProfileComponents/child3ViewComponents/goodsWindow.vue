@@ -12,7 +12,10 @@ const go2BuyGoodsView = () => {
   console.log(props.good);
   router.push({
     name: "buyGoods",
-    query: { bookID:props.good.bookID }
+    query: {
+      bookID:props.good.bookID,
+      sellerID:props.good.sellerID
+    }
   });
 };
 

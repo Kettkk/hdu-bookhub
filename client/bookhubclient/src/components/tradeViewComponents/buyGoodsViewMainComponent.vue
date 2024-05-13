@@ -4,6 +4,7 @@ import axios from "axios";
 import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+
 const route = useRoute();
 
 const information = reactive({
@@ -12,12 +13,15 @@ const information = reactive({
   bookName: '',
   price: '',
   goodDescription: '',
-  bookImg: ''
+  bookImg: '',
 });
-const purchaseBookID = ref('');
 
+const purchaseBookID = ref('');
+const purchasesellerID =ref('')
 purchaseBookID.value = route.query.bookID
-console.log(purchaseBookID.value)
+purchasesellerID.value=route.query.sellerID
+
+console.log(purchaseBookID.value,purchasesellerID.value)
 
 const url = 'http://localhost:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
 
@@ -37,15 +41,20 @@ axios.post(url)
     console.log(error);
   });
 
-
 const go2ChatView = () => {
   console.log('go2ChatView');
   router.push('/chatRoom');
 }
 
+
 const go2otherProfileView = () => {
   console.log('go2otherProfileView');
-  router.push('/userProfile/otherProfile');
+  router.push({
+      path:'/userProfile/otherProfile',
+      query:{
+        sellerID:purchasesellerID.value
+      }
+  });
 }
 </script>
 

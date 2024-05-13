@@ -16,6 +16,7 @@ public class BookStallController : ControllerBase
         public decimal price { get; set; }
         public string description { get; set; }
         public string imgURL { get; set; }
+        public int sellerID { get; set; }
     }
 
     [HttpGet("AllRecommendedBook")]
@@ -28,7 +29,7 @@ public class BookStallController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.* FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC", connection);
+            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.UserID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -44,7 +45,7 @@ public class BookStallController : ControllerBase
                 book.price = reader.GetDecimal("price");
                 book.description = reader.GetString("description");
                 book.imgURL = reader.GetString("bookImg");
-
+                book.sellerID = reader.GetInt32("userID");
                 for (int i = 0; i < book.description.Length; i++)
                 {
                     if (book.description[i] == '：')
@@ -78,7 +79,7 @@ public class BookStallController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM Good ORDER BY createTime DESC", connection);
+            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.userID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY Good.createTime DESC", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -94,7 +95,7 @@ public class BookStallController : ControllerBase
                 book.price = reader.GetDecimal("price");
                 book.description = reader.GetString("description");
                 book.imgURL = reader.GetString("bookImg");
-
+                book.sellerID = reader.GetInt32("userID");
                 for (int i = 0; i < book.description.Length; i++)
                 {
                     if (book.description[i] == '：')

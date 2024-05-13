@@ -16,13 +16,12 @@ public class HomePageController : ControllerBase
         public decimal price { get; set; }
         public string description { get; set; }
         public string imgURL { get; set; }
+        public int sellerID { get; set; }
     }
 
     [HttpGet("RecommendedBook")]
     public IActionResult GetRecommendedBook()
     {
-
-
         try
         {
            
@@ -30,7 +29,7 @@ public class HomePageController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.* FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC LIMIT 8", connection);
+            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.UserID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC LIMIT 8", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -45,8 +44,8 @@ public class HomePageController : ControllerBase
                 book.bookID = reader.GetInt32("goodID");
                 book.price = reader.GetDecimal("price");
                 book.description = reader.GetString("description");
-                book.imgURL = reader.GetString("bookImg"); 
-
+                book.imgURL = reader.GetString("bookImg");
+                book.sellerID = reader.GetInt32("userID");
                 for(int i=0;i<book.description.Length;i++)
                 {
                     if (book.description[i] == '：')
@@ -84,7 +83,7 @@ public class HomePageController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM Good ORDER BY createTime DESC LIMIT 8", connection);
+            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.userID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY Good.createTime DESC LIMIT 8", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -100,6 +99,7 @@ public class HomePageController : ControllerBase
                 book.price = reader.GetDecimal("price");
                 book.description = reader.GetString("description");
                 book.imgURL = reader.GetString("bookImg");
+                book.sellerID = reader.GetInt32("userID");
 
                 for (int i = 0; i < book.description.Length; i++)
                 {

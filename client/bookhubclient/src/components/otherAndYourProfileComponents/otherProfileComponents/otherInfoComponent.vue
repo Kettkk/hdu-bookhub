@@ -1,9 +1,27 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import axios from 'axios';
+const route = useRoute();
+const userID = ref()
 
-const username = ref('Jay');
-const value = ref(3.9);
-const squareUrl = ref('https://th.bing.com/th?id=ODL.96e57f16a53ddb576b897410372a9a73&w=100&h=100&c=12&pcl=faf9f7&o=6&dpr=2&pid=13.1');
+userID.value = route.query.sellerID
+
+const username = ref('');
+const value = ref();
+const squareUrl = ref('');
+
+const url = 'http://localhost:5062/api/SellerPage/SellerInfo?sellerID=' + userID.value
+axios.post(url)
+  .then(function (response) {
+    username.value=response.data.userName
+    value.value=response.data.star
+    squareUrl.value=response.data.avatarImg
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
 </script>
 
@@ -13,28 +31,22 @@ const squareUrl = ref('https://th.bing.com/th?id=ODL.96e57f16a53ddb576b897410372
 
       <el-aside id="asideContainer">
         <div>
-          <el-avatar style="margin-top: 8px;cursor: pointer;" shape="square" :size="135" :fit="fill" :src="squareUrl"/>
+          <el-avatar style="margin-top: 8px;cursor: pointer;" shape="square" :size="135" :fit="fill" :src="squareUrl" />
         </div>
       </el-aside>
 
       <el-main id="mainContainer">
         <div style="display: flex">
-          <el-container id="nameContainer">{{username}}</el-container>
+          <el-container id="nameContainer">{{ username }}</el-container>
         </div>
 
-          <div style="display: flex">
-            <el-container id="starsContainer">
-              <el-rate
-                  v-model="value"
-                  disabled
-                  show-score
-                  text-color="#ff9900"
-                  score-template="{value}"
-              />
-            </el-container>
+        <div style="display: flex">
+          <el-container id="starsContainer">
+            <el-rate v-model="value" disabled  text-color="#ff9900" size="large"/>
+          </el-container>
 
-            <el-button round :size="'large'" id="sendMessageBtn">发消息</el-button>
-          </div>
+          <el-button round :size="'large'" id="sendMessageBtn">发消息</el-button>
+        </div>
 
 
       </el-main>
@@ -43,18 +55,20 @@ const squareUrl = ref('https://th.bing.com/th?id=ODL.96e57f16a53ddb576b897410372
 </template>
 
 <style scoped>
-#asideContainer{
+#asideContainer {
   width: 180px;
   background-color: #f6f8fa;
   text-align: center;
   justify-content: space-between;
 }
-#mainContainer{
+
+#mainContainer {
   width: 1276px;
   height: 150px;
   background-color: #f6f8fa;
 }
-#nameContainer{
+
+#nameContainer {
   height: 40px;
   width: 150px;
   font-size: 22px;
@@ -62,7 +76,8 @@ const squareUrl = ref('https://th.bing.com/th?id=ODL.96e57f16a53ddb576b897410372
   text-align: center;
   justify-content: space-between;
 }
-#starsContainer{
+
+#starsContainer {
   height: 80px;
   width: 80px;
   background-color: #f6f8fa;
@@ -70,7 +85,8 @@ const squareUrl = ref('https://th.bing.com/th?id=ODL.96e57f16a53ddb576b897410372
   justify-content: space-between;
   padding-top: 35px;
 }
-#sendMessageBtn{
+
+#sendMessageBtn {
   margin-top: 30px;
 }
 </style>

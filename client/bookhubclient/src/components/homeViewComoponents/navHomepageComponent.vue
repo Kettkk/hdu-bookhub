@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 
 import axios from "axios";
+import router from '@/router';
 
 const goldUserList = ref([])
 
@@ -14,6 +15,16 @@ axios.get('http://localhost:5062/api/HomePage/GoldUser').then(response => {
     console.log(error)
 });
 
+
+const go2otherProfileView = (goldUser) => {
+  console.log('go2otherProfileView');
+  router.push({
+      path:'/userProfile/otherProfile',
+      query:{
+        sellerID:goldUser.userId
+      }
+  });
+}
 </script>
 
 <template>
@@ -36,7 +47,7 @@ axios.get('http://localhost:5062/api/HomePage/GoldUser').then(response => {
             </div>
             <!--金牌用户内容开始-->
             <div class="bestUsers-content" v-if="goldUserList && goldUserList.length > 0" >
-                <div class="block" v-for="goldUser in goldUserList" :key="goldUser.userId">
+                <div class="block" v-for="goldUser in goldUserList" :key="goldUser.userId" @click="go2otherProfileView(goldUser)" >
                     <div class="block-picture">
                         <el-avatar :src="goldUser.avatarURL" />
                     </div>
@@ -57,7 +68,7 @@ axios.get('http://localhost:5062/api/HomePage/GoldUser').then(response => {
                 </div>
             </div>
             <!--意见反馈内容开始-->
-            <div class="feedback-content">客服邮箱：2867lalala@outlook.com<br>客服电话：<br>18868272792</div>
+            <div class="feedback-content">客服邮箱：HDUBookHub@outlook.com<br>客服电话：<br>18868272792</div>
             <!--意见反馈内容结束-->
         </div>
     </div>
@@ -132,6 +143,7 @@ axios.get('http://localhost:5062/api/HomePage/GoldUser').then(response => {
 .block {
     margin-top: 5px;
     height: 50px;
+    cursor: pointer;
 }
 
 .block-picture {
