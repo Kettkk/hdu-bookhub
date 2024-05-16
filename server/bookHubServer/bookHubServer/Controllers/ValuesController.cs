@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using bookHubServer.Model;
 using bookHubServer.Tool;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
@@ -20,11 +17,12 @@ namespace bookHubServer.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpPost]
+        [Route("api/test2")]
+        public string test(string jwt)
         {
-            return "value";
+            TokenClaim demo = TokenTool.ParseToken(jwt);
+            return demo.email;
         }
 
         // POST api/values

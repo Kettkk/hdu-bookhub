@@ -48,4 +48,38 @@ public class TokenTool
 
         return tokenStr;
     }
+
+    public static TokenClaim ParseToken(string tokenStr)
+    {
+        IConfiguration configuration;
+
+        configuration = ConfigureTool.getConfig();
+
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.UTF8.GetBytes(configuration["Authentication:SecretKey"]);
+
+        tokenHandler.ValidateToken(tokenStr, new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ClockSkew = TimeSpan.Zero
+        }, out SecurityToken validatedToken);
+
+        var jwtToken = (JwtSecurityToken)validatedToken;
+
+        var userID = int.Parse(jwtToken.Claims.First(x => x.Type == "userID").Value);
+        var username = jwtToken.Claims.First(x => x.Type == "username").Value;
+        var email = jwtToken.Claims.First(x => x.Type == "email").Value;
+        var password = jwtToken.Claims.First(x => x.Type == "password").Value;
+
+        return new TokenClaim
+        {
+            userID = userID,
+            username = username,
+            email = email,
+            password = password
+        };
+    }
 }
