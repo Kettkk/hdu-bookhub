@@ -68,7 +68,7 @@ const go2otherProfileView = (goldUser) => {
                 </div>
             </div>
             <!--意见反馈内容开始-->
-            <div class="feedback-content">客服邮箱：HDUBookHub@outlook.com<br>客服电话：<br>18868272792</div>
+            <div class="feedback-content">客服邮箱：<br>HDUBookHub@outlook.com<br>客服电话：<br>18868272792</div>
             <!--意见反馈内容结束-->
         </div>
     </div>
@@ -138,6 +138,7 @@ const go2otherProfileView = (goldUser) => {
 .feedback-content {
     height: 400px;
     border: 2px solid #ddd;
+    font-size: 13px;
 }
 
 .block {
