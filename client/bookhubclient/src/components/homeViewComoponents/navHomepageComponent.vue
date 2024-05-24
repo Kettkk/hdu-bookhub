@@ -49,7 +49,7 @@ const go2otherProfileView = (goldUser) => {
             <div class="bestUsers-content" v-if="goldUserList && goldUserList.length > 0" >
                 <div class="block" v-for="goldUser in goldUserList" :key="goldUser.userId" @click="go2otherProfileView(goldUser)" >
                     <div class="block-picture">
-                        <el-avatar :src="goldUser.avatarURL" />
+                        <el-avatar :src="goldUser.avatarImg" />
                     </div>
 
                     <div class="block-text">{{ goldUser.userName }}</div>

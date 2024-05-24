@@ -18,6 +18,8 @@ public class PersonalPageController : ControllerBase
         public float star { get; set; }
         public decimal money { get; set; }
         public string avatarImg { get; set; }
+        public string email { get; set; }
+        public DateTime createTime { get; set; }
         public int publishedNum { get; set; }
         public int soldNum { get; set; }
         public int purchasedNum { get; set; }
@@ -55,6 +57,8 @@ public class PersonalPageController : ControllerBase
                     personalData.star = reader_info.GetFloat("star");
                     personalData.money = reader_info.GetDecimal("money");
                     personalData.avatarImg = reader_info.GetString("avatarImg");
+                    personalData.email = tokenClaim.email;
+                    personalData.createTime = reader_info.GetDateTime("createTime");
                 }
             }
            

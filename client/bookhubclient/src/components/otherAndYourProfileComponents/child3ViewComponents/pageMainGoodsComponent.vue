@@ -33,8 +33,6 @@ function handleCurrentChange(val) {
   currentPage.value = val;
 }
 
-   
-
 </script>
 
 <template>
