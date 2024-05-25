@@ -20,8 +20,6 @@ onMounted(() => {
       star.value = response.data.star
       money.value = response.data.money
       squareUrl.value = response.data.avatarImg
-      email.value = response.data.email
-      userCreateTime.value = response.data.createTime
       console.log(response.data);
     })
     .catch(function (error) {
@@ -53,7 +51,6 @@ const checkImageFormat = (file) => {
   }
 
   formData.append("img", file.raw)
-
   noUpload.value = true//设置为true阻止继续上传
   return true; // 允许文件上传
 };
@@ -61,7 +58,7 @@ const checkImageFormat = (file) => {
 const dialogImageUrl = ref(""); //预览图片路径
 const dialogVisible = ref(false); //预览框可见
 //删除
-const handleRemove: UploadProps["onRemove"] = (file: UploadFile) => {
+const handleImgRemove: UploadProps["onRemove"] = (file: UploadFile) => {
   console.log("删除图片：");
   console.log(faceList.value);
   formData.delete("img");
@@ -122,7 +119,9 @@ const submitGoodInfo = () => {
       type: 'success',
       plain: true,
     })
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 2000); 
   }
 }
 //#endregion
@@ -130,13 +129,84 @@ const submitGoodInfo = () => {
 //#region 修改个人信息功能JS
 const editedName = ref('')
 const editedEmail = ref('')
+const editedFormData= new FormData()
 
+const checkAvatarFormat = (file) => {
+  const fileFormat = file.name.split(".").pop().toLowerCase(); // 获取文件格式
+  if (!validImageFormats.includes(fileFormat)) {
+    ElMessage({ type: "error", message: "商品图片格式必须为 jpg/jpeg/png" });
+    avatarList.value = []; //删除格式不符合的文件
+    return false; // 阻止文件上传
+  }
+  editedFormData.append("img",file.raw)
+  dontUpload.value = true//设置为true阻止继续上传
+  return true; // 允许文件上传
+};
 
+const previewImageUrl = ref(""); //预览图片路径
+const isdialogVisible = ref(false); //预览框可见
+//删除
+const handleAvatarRemove: UploadProps["onRemove"] = (file: UploadFile) => {
+  editedFormData.delete("img")
+  dontUpload.value = false
+};
+//预览
+const handleAvatarPreview: UploadProps["onPreview"] = (file: UploadFile) => {
+  previewImageUrl.value = file.url!;
+  isdialogVisible.value = true;
+};
 
+const avatarList = ref([])//图片列表
+const dontUpload = ref(false)//不再上传
 
-
+//关闭编辑个人信息窗口，清空信息
+const closeEditInfoDialog = () => {
+  editedName.value=''
+  editedEmail.value=''
+  avatarList.value=[]
+  dontUpload.value=false
+  dialogFormVisible.value=false
+}
+//提交修改内容的方法
 const submitUserInfo = () => {
+  if(editedName.value =='' && editedEmail.value == '' && !editedFormData.has("img"))
+  {
+    ElMessage({
+      message:'若要修改个人信息，请至少填写一项内容',
+      type:'error',
+      plain:true
+    })
+  }else{
+    editedFormData.append("editedName",editedName.value)
+    editedFormData.append("editedEmail",editedEmail.value)
+    
+    const tokenStr = document.cookie.split('=')[1]
+    axios.post('http://localhost:5062/api/EditPersonalInfo', editedFormData, {
+      headers: {
+        Authorization: `Bearer ${tokenStr}`
+      }
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
+    dialogFormVisible.value=false
+    editedName.value=''
+    editedEmail.value=''
+    avatarList.value=[]
+    dontUpload.value=false
+    ElMessage({
+      message: '修改成功',
+      type: 'success',
+      plain: true,
+    })
+    setTimeout(() => {
+      location.reload();
+    }, 2000); 
+  }
 }
 //#endregion
 </script>
@@ -151,7 +221,7 @@ const submitUserInfo = () => {
             :size="135" fit="fill" :src="squareUrl" />
         </div>
         <!-- #region 修改个人信息组件 -->
-        <el-dialog v-model="dialogFormVisible" width="360px">
+        <el-dialog v-model="dialogFormVisible" width="360px" :before-close="closeEditInfoDialog">
           <template #title>
             <div style="text-align: left;">修改个人信息</div>
           </template>
@@ -166,10 +236,23 @@ const submitUserInfo = () => {
 
           <div style="display: flex;">
             <span style="margin-right: 18px;">头像</span>
+            <el-upload :class="{ disabled: dontUpload }" :auto-upload="false" list-type="picture-card"
+              :on-preview="handleAvatarPreview" :on-change="checkAvatarFormat" :on-remove="handleAvatarRemove"
+              :limit="1" ref="businessLicense" :file-list="avatarList">
+
+              <el-icon v-if="avatarList.length == 0">
+                <EditPen />
+              </el-icon>
+            </el-upload>
           </div>
 
+          <el-dialog v-model="isdialogVisible">
+            <img w-full :src="previewImageUrl" alt="Preview Image" class="preview-image"/>
+          </el-dialog>
+
+
           <div style="margin-top: 15px;">
-            <el-button type="primary" @click="dialogFormVisible = false; submitUserInfo()">修改完成</el-button>
+            <el-button type="primary" @click="submitUserInfo">修改完成</el-button>
           </div>
 
         </el-dialog>
@@ -191,7 +274,7 @@ const submitUserInfo = () => {
                     商品图片
                   </span>
                   <el-upload :class="{ disabled: noUpload }" :auto-upload="false" list-type="picture-card"
-                    :on-preview="handlePictureCardPreview" :on-change="checkImageFormat" :on-remove="handleRemove"
+                    :on-preview="handlePictureCardPreview" :on-change="checkImageFormat" :on-remove="handleImgRemove"
                     :limit="1" ref="businessLicense" :file-list="faceList">
                     <el-icon v-if="faceList.length == 0">
                       <Plus />

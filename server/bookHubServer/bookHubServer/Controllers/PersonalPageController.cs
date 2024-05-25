@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.Mozilla;
+using System.Data;
 
 namespace bookHubServer.Controllers;
 
@@ -53,11 +54,11 @@ public class PersonalPageController : ControllerBase
                 if (reader_info.Read())
                 {
                     personalData.userId = tokenClaim.userID;
-                    personalData.userName = tokenClaim.username;
+                    personalData.userName = reader_info.GetString("username");
                     personalData.star = reader_info.GetFloat("star");
                     personalData.money = reader_info.GetDecimal("money");
                     personalData.avatarImg = reader_info.GetString("avatarImg");
-                    personalData.email = tokenClaim.email;
+                    personalData.email = reader_info.GetString("email");
                     personalData.createTime = reader_info.GetDateTime("createTime");
                 }
             }
