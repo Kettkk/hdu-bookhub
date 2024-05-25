@@ -58,7 +58,7 @@ public class EditPersonalInfoController : ControllerBase
                
                 //保存新图片到本地并且将地址进行更新
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imgFile.FileName);
-                var filePath = Path.Combine(@"http://101.34.70.172/AvatarImg/", fileName);
+                var filePath = Path.Combine(@"/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/Assets/AvatarImg/", fileName);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     imgFile.CopyTo(stream);
