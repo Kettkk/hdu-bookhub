@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bookHubServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f113ef52f3e3ea05da904e1df45a14cd2571164")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c83769798310cc63065b407bc6521d1c35603474")]
 [assembly: System.Reflection.AssemblyProductAttribute("bookHubServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bookHubServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
