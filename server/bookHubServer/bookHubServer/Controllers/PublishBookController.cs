@@ -28,7 +28,7 @@ public class PublishBookController : ControllerBase
             var imgFile = formData.Files.GetFile("img");
 
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imgFile.FileName);
-            var filePath = Path.Combine(@"D:\DevProjects\hdu-bookhub\server\bookHubServer\bookHubServer\Assets\BookImg\", fileName);
+            var filePath = Path.Combine(@"http://101.34.70.172/BookImg/", fileName);
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 imgFile.CopyTo(stream);

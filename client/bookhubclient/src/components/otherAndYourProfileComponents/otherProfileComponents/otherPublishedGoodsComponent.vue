@@ -12,7 +12,7 @@ const currentPage = ref(1); // 当前页码
 
 const goodsList = ref([])
 
-const url = 'http://localhost:5062/api/SellerPage/SellerBook?sellerID=' + userID.value
+const url = 'http://101.34.70.172:5062/api/SellerPage/SellerBook?sellerID=' + userID.value
 
 axios.post(url)
   .then(function (response) {

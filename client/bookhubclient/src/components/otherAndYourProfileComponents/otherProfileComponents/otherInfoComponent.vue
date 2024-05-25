@@ -11,7 +11,7 @@ const username = ref('');
 const value = ref();
 const squareUrl = ref('');
 
-const url = 'http://localhost:5062/api/SellerPage/SellerInfo?sellerID=' + userID.value
+const url = 'http://101.34.70.172:5062/api/SellerPage/SellerInfo?sellerID=' + userID.value
 axios.post(url)
   .then(function (response) {
     username.value=response.data.userName

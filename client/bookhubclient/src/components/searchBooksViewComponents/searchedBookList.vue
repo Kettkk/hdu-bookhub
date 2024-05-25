@@ -11,7 +11,7 @@ const keyWord = ref('')
 
 keyWord.value = route.query.keyword
 
-const url ="http://localhost:5062/api/Search?keyword="+encodeURIComponent(keyWord.value)
+const url ="http://101.34.70.172:5062/api/Search?keyword="+encodeURIComponent(keyWord.value)
 
 axios.post(url)
   .then(function (response) {

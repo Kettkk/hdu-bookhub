@@ -6,7 +6,7 @@ import axios from "axios";
 
 const goodsList = ref([])
 
-axios.get('http://localhost:5062/api/BookStall/AllLatestBook').then(response => {
+axios.get('http://101.34.70.172:5062/api/BookStall/AllLatestBook').then(response => {
     console.log(response.data)
     goodsList.value = response.data; 
 }).catch(error => {

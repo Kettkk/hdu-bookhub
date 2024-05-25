@@ -50,11 +50,7 @@ public class EditPersonalInfoController : ControllerBase
                     if(reader.Read())
                     {
                         string avartarUrl = reader.GetString("avatarImg");
-
-                        //仅用于本地测试
-                        string avatarLocalPath = @"D:\DevProjects\hdu-bookhub\server\bookHubServer\bookHubServer\Assets\AvatarImg\" + avartarUrl.Substring(31);
-
-                        System.IO.File.Delete(avatarLocalPath);
+                        System.IO.File.Delete(avartarUrl);
 
                     }
 
@@ -62,7 +58,7 @@ public class EditPersonalInfoController : ControllerBase
 
                 //保存新图片到本地并且将地址进行更新
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imgFile.FileName);
-                var filePath = Path.Combine(@"D:\DevProjects\hdu-bookhub\server\bookHubServer\bookHubServer\Assets\AvatarImg\", fileName);
+                var filePath = Path.Combine(@"http://101.34.70.172/AvatarImg/", fileName);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     imgFile.CopyTo(stream);

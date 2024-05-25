@@ -10,7 +10,7 @@ import { useRoute } from 'vue-router';
 const goodsList = ref([]);
 
 onMounted(()=>{
-  axios.post('http://localhost:5062/api/PersonalBook', {
+  axios.post('http://101.34.70.172:5062/api/PersonalBook', {
       userID:route.query.personalID,
       whichView:route.query.whichView
     })

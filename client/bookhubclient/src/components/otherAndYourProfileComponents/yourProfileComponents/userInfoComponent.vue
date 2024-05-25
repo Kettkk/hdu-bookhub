@@ -95,7 +95,7 @@ const submitGoodInfo = () => {
     formData.append("description", description.value)
 
     const tokenStr = document.cookie.split('=')[1]
-    axios.post('http://localhost:5062/api/PublishBook', formData, {
+    axios.post('http://101.34.70.172:5062/api/PublishBook', formData, {
       headers: {
         Authorization: `Bearer ${tokenStr}`
       }
@@ -181,7 +181,7 @@ const submitUserInfo = () => {
     editedFormData.append("editedEmail",editedEmail.value)
     
     const tokenStr = document.cookie.split('=')[1]
-    axios.post('http://localhost:5062/api/EditPersonalInfo', editedFormData, {
+    axios.post('http://101.34.70.172:5062/api/EditPersonalInfo', editedFormData, {
       headers: {
         Authorization: `Bearer ${tokenStr}`
       }

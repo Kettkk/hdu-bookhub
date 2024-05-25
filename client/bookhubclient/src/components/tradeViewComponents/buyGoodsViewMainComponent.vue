@@ -23,7 +23,7 @@ purchasesellerID.value=route.query.sellerID
 
 console.log(purchaseBookID.value,purchasesellerID.value)
 
-const url = 'http://localhost:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
+const url = 'http://101.34.70.172:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
 
 
 axios.post(url)
