@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import axios from "axios";
-import router from "@/router/index.js";
-import MountainOfLoginPicture from "@/components/mountainOfLoginPicture.vue";
+import router from "@/router";
+import MountainOfLoginPicture from "@/loginViewComponents/mountainOfLoginPicture.vue";
 
 const loginForm = ref({
     username: '',
@@ -32,6 +32,7 @@ const go2SignUpForm = () => {
 }
 
 const submitForm = () => {
+    formRef.value = loginForm.value;
     formRef.value.validate((valid) => {
         if (valid) {
             console.log('表单验证通过！尝试登录...');
