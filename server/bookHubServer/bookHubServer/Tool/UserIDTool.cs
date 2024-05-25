@@ -14,7 +14,5 @@ public class UserIDTool
         int res = Convert.ToInt32(command.ExecuteScalar());
 
         return res;
-
     }
-
 }

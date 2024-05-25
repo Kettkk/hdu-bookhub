@@ -1,7 +1,6 @@
 <script setup>
-
-import router from "@/router/index.js";
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const props = defineProps({
   good: {
     type: Object,
@@ -13,8 +12,9 @@ const go2BuyGoodsView = () => {
   console.log(props.good);
   router.push({
     name: "buyGoods",
-    params: {
-      good: props.good
+    query: {
+      bookID:props.good.bookID,
+      sellerID:props.good.sellerID
     }
   });
 };
@@ -26,7 +26,7 @@ const go2BuyGoodsView = () => {
   <el-card style="max-width: 480px">
     <div class="image-container">
       <img
-          :src= "good.image"
+          :src="good.imgURL"
           style="width: 100%"
           class="image"
       />
@@ -34,9 +34,9 @@ const go2BuyGoodsView = () => {
 
     <hr class="separator">
     <div style="padding-top: 5px">
-      <span><strong>{{props.good.name}}</strong></span>
+      <span><strong>{{good.bookname}}</strong></span>
       <br>
-      <span style="font-size: 20px;color: #5d85ad;padding-top: 8px"><strong>{{props.good.price}} ¥</strong></span>
+      <span style="font-size: 20px;color: #5d85ad;padding-top: 8px"><strong>{{good.price}} ¥</strong></span>
     </div>
   </el-card>
 

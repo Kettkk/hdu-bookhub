@@ -48,6 +48,11 @@ const router = createRouter({
       path:'/assistant',
       name:'assistant',
       component:()=>import('@/views/assistantView.vue')
+    },
+    {
+      path:'/searchBooks',
+      name:'searchBooks',
+      component:()=>import('@/views/searchBooksView.vue')
     }
   ]
 })
