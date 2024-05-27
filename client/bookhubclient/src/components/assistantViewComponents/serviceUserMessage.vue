@@ -1,13 +1,38 @@
 <template>
     <div id="message">
         <div id="message-content">
-          谢谢你！
+          {{props.userMessage}}
         </div>
-        <el-avatar id="message-avatar" :icon="UserFilled" />
+        <el-avatar id="message-avatar" :src="squareUrl" />
     </div>
 </template>
 
 <script setup>
+import {onMounted, ref} from "vue";
+import axios from "axios";
+const props = defineProps({
+  userMessage:{
+    type: String,
+    required: true
+  }
+
+})
+
+const squareUrl = ref('');
+onMounted(() => {
+  const tokenStr = document.cookie.split('=')[1]
+
+  axios.post('http://localhost:5062/api/assistant/getUserAvatar', {
+    tokenValue: tokenStr
+  })
+      .then(function (response) {
+        squareUrl.value = response.data.avatarImg
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+})
     
 </script>
 

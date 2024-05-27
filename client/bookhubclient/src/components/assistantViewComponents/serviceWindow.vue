@@ -8,14 +8,14 @@
                 <div style="height:30px;font-size: 25px;line-height: 30px;margin-left: 15px;">智能客服</div>
             </el-header>
             <el-main id="window-message">
-                <serviceMessageList></serviceMessageList>
+                <serviceMessageList v-bind:userMessage="userSubmitMessage"></serviceMessageList>
 
             </el-main>
 
             <el-footer id="window-input">
                 <div style=" box-shadow: 0px 0px 25px 5px #dcdcdc; border-radius: 4px;">
                     <el-input v-model="messageText" style="width: 500px" :rows="2" type="textarea" placeholder="请提出你的问题..."
-                        resize="none" @keyup.enter="clearInput"/>
+                        resize="none" @keyup.enter="clearInputAndSubmit"/>
                 </div>
 
             </el-footer>
@@ -30,8 +30,10 @@ import serviceMessageList from './serviceMessageList.vue'
 import { ref } from 'vue';
 
 const messageText=ref("")
+let userSubmitMessage = "123"
 
-const clearInput = () =>{
+const clearInputAndSubmit = () =>{
+    userSubmitMessage = messageText.value
     messageText.value=""
 }  
 

@@ -47,16 +47,12 @@ const router = createRouter({
     {
       path:'/assistant',
       name:'assistant',
-<<<<<<< HEAD
       component:()=>import('@/views/chatAndAssistantView/assistantView.vue')
-=======
-      component:()=>import('@/views/assistantView.vue')
     },
     {
       path:'/searchBooks',
       name:'searchBooks',
       component:()=>import('@/views/searchBooksView.vue')
->>>>>>> develop
     }
   ]
 })
