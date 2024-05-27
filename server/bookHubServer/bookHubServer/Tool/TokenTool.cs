@@ -82,4 +82,8 @@ public class TokenTool
             password = password
         };
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> develop

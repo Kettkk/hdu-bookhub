@@ -56,10 +56,12 @@ namespace bookHubServer.Controllers
 
                     int res = mySqlCommand_insert.ExecuteNonQuery();
 
+                    connection.Close();
                     return Ok("registration success");
                 }
                 else
                 {
+                    connection.Close();
                     return StatusCode(500, "username already taken");
                 }
             }
