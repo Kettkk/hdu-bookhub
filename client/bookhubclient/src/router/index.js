@@ -42,12 +42,12 @@ const router = createRouter({
     {
       path:'/chatRoom',
       name:'chatRoom',
-      component:()=>import('@/views/chatView.vue')
+      component:()=>import('@/views/chatAndAssistantView/chatView.vue')
     },
     {
       path:'/assistant',
       name:'assistant',
-      component:()=>import('@/views/assistantView.vue')
+      component:()=>import('@/views/chatAndAssistantView/assistantView.vue')
     }
   ]
 })
