@@ -47,14 +47,15 @@ watch(() => props.userMessage, async (newMessage) => {
 
   // 调用AI接口
   const data = JSON.stringify({
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-3.5-turbo-ca",
     "messages": [
       { "role": "system",
         "content": "扮演网站的AI客服，给用户提供服务。网站信息如下：" +
             "1.网站名为BookHub，杭电二手书交易平台，网站仍然属于测试阶段。" +
             "2.网站的人工客服联系邮箱为HDUBookHub@outlook.com，人工客服电话为18868272792" +
             "3.网站提供的功能有书摊区购物，与其他用户联系的聊天室，书籍发布，金牌用户评比" +
-            "4.点击上面的HduBookHub标题可以返回首页"
+            "4.点击上面的HduBookHub标题可以返回首页" +
+            "5.如果用户询问一些与网站没有关系的问题，可以解释这是网站客服，然后简单聊几句用户的其他话题，然后再次声明这是网站客服，但可以简单回复其他问题"
       },
       ...messages.value.map(m => ({ role: m.role, content: m.content })),
       { "role": "user", "content": newMessage }
