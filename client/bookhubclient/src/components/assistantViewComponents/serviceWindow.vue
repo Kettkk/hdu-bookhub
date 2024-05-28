@@ -26,16 +26,18 @@
 
 <script setup>
 import { Service } from '@element-plus/icons-vue';
-import serviceMessageList from './serviceMessageList.vue'
+import serviceMessageList from './serviceMessageList.vue';
 import { ref } from 'vue';
 
 const messageText=ref("")
-let userSubmitMessage = "123"
+var userSubmitMessage = ref("123");
 
 const clearInputAndSubmit = () =>{
-    userSubmitMessage = messageText.value
+    console.log(messageText.value)
+    console.log(userSubmitMessage)
+    userSubmitMessage.value = messageText.value
     messageText.value=""
-}  
+}
 
 </script>
 
