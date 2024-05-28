@@ -1,38 +1,39 @@
 ﻿<Properties StartupConfiguration="{12F36085-7E87-43D5-8783-0A8809B64419}|https">
-  <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Tool/TokenTool.cs">
+  <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Program.cs">
     <Files>
-      <File FileName="bookHubServer/Controllers/LoginController.cs" Line="70" Column="26" />
-      <File FileName="bookHubServer/Properties/launchSettings.json" />
-      <File FileName="bookHubServer/Controllers/RegisterController.cs" Line="51" Column="31" />
-      <File FileName="bookHubServer/Controllers/ValuesController.cs" Line="25" Column="23" />
-      <File FileName="bookHubServer/Program.cs" />
+      <File FileName="bookHubServer/Controllers/LoginController.cs" />
+      <File FileName="bookHubServer/Properties/launchSettings.json" Line="10" Column="5" />
+      <File FileName="bookHubServer/Controllers/RegisterController.cs" />
+      <File FileName="bookHubServer/Controllers/ValuesController.cs" />
+      <File FileName="bookHubServer/Program.cs" Line="1" Column="1" />
       <File FileName="bookHubServer/Tool/TokenTool.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Model/User.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Model/User.cs" />
       <File FileName="bookHubServer/Tool/ConfigureTool.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Tool/DataBaseTool.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Tool/GoodIDTool.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Tool/UserIDTool.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/ConfigFile/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="bookHubServer">
-            <Node name="bookHubServer">
+          <Node name="bookHubServer" expanded="True">
+            <Node name="bookHubServer" expanded="True">
               <Node name="ConfigFile" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Model" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Tool" expanded="True">
-                <Node name="TokenTool.cs" selected="True" />
-              </Node>
+              <Node name="Tool" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

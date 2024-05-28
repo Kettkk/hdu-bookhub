@@ -23,7 +23,7 @@ const squareUrl = ref('');
 onMounted(() => {
   const tokenStr = document.cookie.split('=')[1];
 
-  axios.post('http://bkhb.site:5062/api/assistant/getUserAvatar', {
+  axios.post('http://101.34.70.172:5062/api/assistant/getUserAvatar', {
     tokenValue: tokenStr
   })
       .then(response => {

@@ -21,11 +21,13 @@
     <None Remove="Model\" />
     <None Remove="Service\" />
     <None Remove="Tool\" />
+    <None Remove="Controllers\AIController\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\PosterImg\" />
     <Folder Include="Assets\AvatarImg\" />
     <Folder Include="ConfigFile\" />
     <Folder Include="Service\" />
+    <Folder Include="Controllers\AIController\" />
   </ItemGroup>
 </Project>
