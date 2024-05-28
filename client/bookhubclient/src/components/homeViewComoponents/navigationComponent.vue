@@ -26,7 +26,7 @@ const activeName = ref('first')
             </el-tab-pane>
             <el-tab-pane label="书摊区" name="second">
                 <div class="poster">
-                    <img src="@/assets/poster1.png" alt="" />
+                    <img src="../../assets/poster1.png" alt="" />
                 </div>
                 <bookstall-content-component></bookstall-content-component>
             </el-tab-pane>
