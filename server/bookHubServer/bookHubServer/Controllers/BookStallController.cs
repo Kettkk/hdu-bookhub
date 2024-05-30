@@ -29,7 +29,7 @@ public class BookStallController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.UserID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC", connection);
+            MySqlCommand command = new MySqlCommand("SELECT g.*,`User`.userID FROM (SELECT * FROM Good EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID) AS g,`User` WHERE g.sellerID=`User`.userID ORDER BY `User`.star DESC  \r\n", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -79,7 +79,7 @@ public class BookStallController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.userID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY Good.createTime DESC", connection);
+            MySqlCommand command = new MySqlCommand("SELECT g.*,`User`.userID FROM (SELECT * FROM Good EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID) AS g,`User` WHERE g.sellerID=`User`.userID ORDER BY g.createTime DESC ", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 

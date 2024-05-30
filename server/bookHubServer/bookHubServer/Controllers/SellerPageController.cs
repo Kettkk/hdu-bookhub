@@ -71,7 +71,7 @@ public class SellerPageController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM Good WHERE sellerID = @sellerID", connection);
+            MySqlCommand command = new MySqlCommand("SELECT * FROM Good WHERE sellerID = @sellerID EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID", connection);
             command.Parameters.AddWithValue("@sellerID", sellerID);
 
             MySqlDataReader reader = command.ExecuteReader();

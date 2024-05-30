@@ -44,8 +44,8 @@ const logout = () => {
                 <login-component></login-component>
                 <!-- 注册按钮 -->
                 <register-component></register-component>
-                <el-button class="button" @click="go2ChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
                 <el-button class="button" @click="go2YourProfile" color="#e2c8ca" :dark="true" plain link >个人中心</el-button>
+                <el-button class="button" @click="go2ChatRoom" color="#e2c8ca" :dark="true" plain link>我的消息</el-button>
                 <el-button class="button" @click="go2Assistant" color="#e2c8ca" :dark="true" plain link>AI客服</el-button>
                 <el-button class="button" @click="logout" color="#e2c8ca" :dark="true" plain link>退出登录</el-button>
             </div>

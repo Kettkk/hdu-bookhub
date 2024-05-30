@@ -2,14 +2,14 @@
 
 namespace bookHubServer.Tool;
 
-public class UserIDTool
+public class OrderIDTool
 {
-    public static int GetMaxUserID()
+    public static int GetMaxOrderID()
     {
         MySqlConnection connection = DataBaseTool.GetConnection();
         connection.Open();
 
-        MySqlCommand command = new MySqlCommand("SELECT MAX(userID) FROM User", connection);
+        MySqlCommand command = new MySqlCommand("SELECT MAX(orderID) FROM `Order`", connection);
 
         var res = command.ExecuteScalar();
 
@@ -23,5 +23,7 @@ public class UserIDTool
             connection.Close();
             return Convert.ToInt32(res);
         }
+
+        
     }
 }

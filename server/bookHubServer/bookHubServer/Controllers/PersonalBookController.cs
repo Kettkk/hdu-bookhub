@@ -25,6 +25,8 @@ public class PersonalBookController : ControllerBase
         public int sellerID { get; set; }
     }
 
+
+
     [HttpPost]
     public IActionResult GetPersonalBookData(DirectView directView)
     {

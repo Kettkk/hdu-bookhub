@@ -28,7 +28,7 @@ public class SearchController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM Good WHERE description LIKE @keyword", connection);
+            MySqlCommand command = new MySqlCommand("SELECT * FROM Good WHERE description LIKE @keyword EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID", connection);
 
             command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
