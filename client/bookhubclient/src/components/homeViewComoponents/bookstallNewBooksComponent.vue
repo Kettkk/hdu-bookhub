@@ -3,10 +3,10 @@
 import GoodsWindow from "@/components/otherAndYourProfileComponents/child3ViewComponents/goodsWindow.vue";
 import { ref, computed} from 'vue';
 import axios from "axios";
-
+import { testURL } from "@/Tools/testTool";
 const goodsList = ref([])
 
-axios.get('http://101.34.70.172:5062/api/BookStall/AllLatestBook').then(response => {
+axios.get('http://'+testURL+':5062/api/BookStall/AllLatestBook').then(response => {
     console.log(response.data)
     goodsList.value = response.data; 
 }).catch(error => {

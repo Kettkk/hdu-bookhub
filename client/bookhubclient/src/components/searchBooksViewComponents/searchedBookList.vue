@@ -8,10 +8,10 @@ const route = useRoute();
 import { useRoute } from 'vue-router';
 const goodsList = ref([])
 const keyWord = ref('') 
-
+import { testURL } from "@/Tools/testTool";
 keyWord.value = route.query.keyword
 
-const url ="http://101.34.70.172:5062/api/Search?keyword="+encodeURIComponent(keyWord.value)
+const url ='http://'+testURL+':5062/api/Search?keyword='+encodeURIComponent(keyWord.value)
 
 axios.post(url)
   .then(function (response) {

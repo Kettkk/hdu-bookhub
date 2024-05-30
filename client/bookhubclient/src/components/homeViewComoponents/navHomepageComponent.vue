@@ -1,14 +1,14 @@
 <!--中间导航栏首页内容-->
 <script lang="ts" setup>
 import { ref } from 'vue'
-
+import { testURL } from '@/Tools/testTool';
 import axios from "axios";
 import router from '@/router';
 
 const goldUserList = ref([])
 
 //获取金牌用户列表
-axios.get('http://101.34.70.172:5062/api/HomePage/GoldUser').then(response => {
+axios.get('http://'+testURL+':5062/api/HomePage/GoldUser').then(response => {
     console.log(response.data)
     goldUserList.value = response.data;
 }).catch(error => {

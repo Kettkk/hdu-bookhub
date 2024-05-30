@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { ElMessage } from 'element-plus'
-
+import { testURL } from "@/Tools/testTool";
 const dialogVisible = ref(false); // 控制对话框显示的状态
 const registerVisible = ref(true);
 const registerForm = ref({
@@ -84,7 +84,7 @@ const submitRegisterForm = () => {
 };
 
 const test = (registerInfo) => {
-    axios.post('http://101.34.70.172:5062/api/Register', registerInfo,
+    axios.post('http://'+testURL+':5062/api/Register', registerInfo,
     {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'

@@ -6,11 +6,11 @@ const goodsPerPage = 12; // 每页显示的商品数量
 const currentPage = ref(1); // 当前页码
 const route = useRoute();
 import { useRoute } from 'vue-router';
-
+import { testURL } from "@/Tools/testTool";
 const goodsList = ref([]);
 
 onMounted(()=>{
-  axios.post('http://101.34.70.172:5062/api/PersonalBook', {
+  axios.post('http://'+testURL+':5062/api/PersonalBook', {
       userID:route.query.personalID,
       whichView:route.query.whichView
     })

@@ -3,7 +3,7 @@ import router from "@/router/index.js";
 import axios from "axios";
 import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
-
+import { testURL } from "@/Tools/testTool";
 
 const route = useRoute();
 
@@ -23,7 +23,7 @@ purchasesellerID.value=route.query.sellerID
 
 console.log(purchaseBookID.value,purchasesellerID.value)
 
-const url = 'http://101.34.70.172:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
+const url = 'http://'+testURL+':5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
 
 
 axios.post(url)
