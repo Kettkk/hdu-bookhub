@@ -1,39 +1,45 @@
-﻿<Properties StartupConfiguration="{12F36085-7E87-43D5-8783-0A8809B64419}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupConfiguration="{12F36085-7E87-43D5-8783-0A8809B64419}|http">
   <MonoDevelop.Ide.ItemProperties.bookHubServer PreferredExecutionTarget="/Applications/Arc.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Program.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="bookHubServer/Tool/TokenTool.cs">
     <Files>
-      <File FileName="bookHubServer/Controllers/LoginController.cs" />
-      <File FileName="bookHubServer/Properties/launchSettings.json" Line="10" Column="5" />
-      <File FileName="bookHubServer/Controllers/RegisterController.cs" />
-      <File FileName="bookHubServer/Controllers/ValuesController.cs" />
-      <File FileName="bookHubServer/Program.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Tool/TokenTool.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Model/User.cs" />
+      <File FileName="bookHubServer/Controllers/RegisterController.cs" Line="64" Column="1" />
+      <File FileName="bookHubServer/Controllers/ChatControllers/ChatCreateController.cs" Line="38" Column="45" />
+      <File FileName="bookHubServer/Model/ChatObject.cs" Line="10" Column="49" />
+      <File FileName="bookHubServer/Model/Good.cs" Line="10" Column="1" />
+      <File FileName="bookHubServer/Controllers/PurchasePageController.cs" Line="1" Column="1" />
+      <File FileName="bookHubServer/Controllers/SellerPageController.cs" Line="21" Column="52" />
       <File FileName="bookHubServer/Tool/ConfigureTool.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Tool/DataBaseTool.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Tool/GoodIDTool.cs" Line="1" Column="1" />
-      <File FileName="bookHubServer/Tool/UserIDTool.cs" Line="1" Column="1" />
       <File FileName="bookHubServer/ConfigFile/appsettings.json" Line="1" Column="1" />
+      <File FileName="bookHubServer/Properties/launchSettings.json" Line="21" Column="7" />
+      <File FileName="bookHubServer/Tool/TokenTool.cs" Line="51" Column="1" />
+      <File FileName="bookHubServer/Model/TokenClaim.cs" Line="6" Column="1" />
+      <File FileName="bookHubServer/Controllers/AIController/getUserAvatar.cs" Line="15" Column="42" />
+      <File FileName="bookHubServer/Model/User.cs" Line="10" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="bookHubServer" expanded="True">
-            <Node name="bookHubServer" expanded="True">
+          <Node name="bookHubServer">
+            <Node name="bookHubServer">
               <Node name="ConfigFile" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Tool" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AIController" expanded="True" />
+                <Node name="ChatControllers" expanded="True" />
+              </Node>
+              <Node name="Model" expanded="True" />
+              <Node name="Tool" expanded="True">
+                <Node name="TokenTool.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
