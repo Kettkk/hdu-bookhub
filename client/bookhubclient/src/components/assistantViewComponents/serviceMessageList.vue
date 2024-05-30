@@ -11,13 +11,6 @@
         </el-scrollbar>
       </el-main>
 
-      <el-footer id="window-input">
-        <div style="box-shadow: 0px 0px 25px 5px #dcdcdc; border-radius: 4px;">
-          <el-input v-model="messageText" style="width: 500px" :rows="2" type="textarea" placeholder="请提出你的问题..."
-                    resize="none" @keyup.enter="clearInputAndSubmit"/>
-        </div>
-      </el-footer>
-
     </el-container>
   </div>
 </template>
