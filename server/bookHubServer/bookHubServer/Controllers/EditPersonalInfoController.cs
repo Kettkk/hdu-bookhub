@@ -50,7 +50,7 @@ public class EditPersonalInfoController : ControllerBase
                     if(reader.Read())
                     {
                         string avartarUrl = reader.GetString("avatarImg");
-                        if(avartarUrl != null)
+                        if(avartarUrl != "")
                         {
                             string serverLocalPath = @"/root/document/project/gitProject/hdu-bookhub/server/bookHubServer/bookHubServer/Assets/AvatarImg/" + avartarUrl.Substring(31);
                             System.IO.File.Delete(serverLocalPath);
