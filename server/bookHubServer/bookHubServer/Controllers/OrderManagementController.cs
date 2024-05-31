@@ -17,7 +17,7 @@ public class OrderManagementController : ControllerBase
         public string sellerName{ get; set; }
         public string purchaseTime { get; set; }
         public string bookImg { get; set; }
-        public float price { get; set; }
+        public decimal price { get; set; }
     }
 
 
@@ -52,7 +52,7 @@ public class OrderManagementController : ControllerBase
                 order.sellerName = reader.GetString("username");
                 order.purchaseTime = reader.GetDateTime("createTime").ToString();
                 order.bookImg = reader.GetString("bookImg");
-                order.price = reader.GetFloat("price");
+                order.price = reader.GetDecimal("price");
 
                 for (int i = 0; i < descriptionText.Length; i++)
                 {
@@ -95,9 +95,10 @@ public class OrderManagementController : ControllerBase
 
             int res;
 
-            //更新Order表中的订单状态
-            MySqlCommand command_updatestatus = new MySqlCommand("UPDATE `Order` SET `status` = 1 WHERE orderID = @orderID", connection);
+            //更新Order表中的订单状态和修改时间
+            MySqlCommand command_updatestatus = new MySqlCommand("UPDATE `Order` SET `status` = 1,latestUpdateTime = @time WHERE orderID = @orderID", connection);
             command_updatestatus.Parameters.AddWithValue("@orderID", acceptGoodData.orderID);
+            command_updatestatus.Parameters.AddWithValue("@time", DateTime.Now);
             res = command_updatestatus.ExecuteNonQuery();
 
             //获取卖家修改前的评分
@@ -117,6 +118,17 @@ public class OrderManagementController : ControllerBase
             command_updatesellerstar.Parameters.AddWithValue("@sum", oldStar + acceptGoodData.star);
             command_updatesellerstar.Parameters.AddWithValue("@orderID", acceptGoodData.orderID);
             res = command_updatesellerstar.ExecuteNonQuery();
+
+            //更新卖家的余额
+            MySqlCommand command_transfer = new MySqlCommand(
+                "UPDATE `User` SET money = money + " +
+                "(SELECT price FROM Good WHERE goodID = ( SELECT goodID FROM `Order` WHERE orderID = @orderID ))" +
+                " WHERE userID = (SELECT sellerID FROM `Order` WHERE orderID = @orderID)",
+                connection
+            );
+
+            command_transfer.Parameters.AddWithValue("@orderID", acceptGoodData.orderID);
+            res = command_transfer.ExecuteNonQuery();
 
             connection.Close();
             return Ok("successful");

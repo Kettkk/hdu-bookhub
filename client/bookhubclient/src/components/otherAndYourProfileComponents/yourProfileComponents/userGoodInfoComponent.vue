@@ -32,7 +32,6 @@ const go2PublishedGoodsView = () => {
     name: 'publishedGoodsView',
     query: {
       personalID: personalID.value,
-      whichView: 1
     }
   });
 }
@@ -41,7 +40,6 @@ const go2SoldGoodsView = () => {
     name: 'soldGoodsView',
     query: {
       personalID: personalID.value,
-      whichView: 2
     }
   });
 }
@@ -50,7 +48,6 @@ const go2BroughtGoodsView = () => {
     name: 'broughtGoodsView',
     query: {
       personalID: personalID.value,
-      whichView: 3
     }
   });
 }

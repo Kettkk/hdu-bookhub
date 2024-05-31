@@ -33,8 +33,6 @@ public class PurchaseController : ControllerBase
     {
         try
         {
-
-            
             PurchaseData purchaseData = new PurchaseData();
             purchaseData.orderID = OrderIDTool.GetMaxOrderID() + 1;
             Console.WriteLine(purchaseData.orderID);
@@ -55,6 +53,8 @@ public class PurchaseController : ControllerBase
 
                 connection.Open();
 
+                int res = 0;
+                //创建订单
                 MySqlCommand command = new MySqlCommand(
                     "INSERT INTO `Order` (orderID,sellerID,consumerID,goodID,`status`,createTime,latestUpdateTime) " +
                     "VALUES(@orderID,@sellerID,@consumerID,@goodID,@status,@createTime,@latestUpdateTime)",
@@ -68,7 +68,14 @@ public class PurchaseController : ControllerBase
                 command.Parameters.AddWithValue("@status", purchaseData.status);
                 command.Parameters.AddWithValue("@createTime", purchaseData.createTime);
                 command.Parameters.AddWithValue("@latestUpdateTime", purchaseData.lastUpdateTime);
-                int res = command.ExecuteNonQuery();
+                res = command.ExecuteNonQuery();
+
+                //从买家账户余额中扣除商品价格
+                MySqlCommand command_deduct = new MySqlCommand("UPDATE `User` SET money = money - (SELECT price FROM Good WHERE goodID = @goodID) WHERE userID = @userID", connection);
+                command_deduct.Parameters.AddWithValue("@goodID", purchaseData.goodID);
+                command_deduct.Parameters.AddWithValue("@userID", purchaseData.consumerID);
+                res = command_deduct.ExecuteNonQuery();
+
                 connection.Close();
             }
 

@@ -2,7 +2,7 @@
 
 import PageHeaderComponent
   from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageHeaderComponent.vue";
-import PageMainComponent from "@/components/otherAndYourProfileComponents/child3ViewComponents/pageMainComponent.vue";
+import myPublishedViewComponent from "@/components/personalBooksDataComponents/myPublishedViewComponent.vue";
 import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFooterComponent.vue";
 </script>
 
@@ -14,7 +14,7 @@ import HomeViewFooterComponent from "@/components/homeViewComoponents/homeViewFo
       </el-header>
 
       <el-main id="mainContainer">
-        <PageMainComponent></PageMainComponent>
+        <myPublishedViewComponent></myPublishedViewComponent>
       </el-main>
 
       <el-footer id="footerContainer">

@@ -29,7 +29,7 @@ const confirmAccept = (orderID) => {
 }
 //#endregion
 
-//#region 实现评分弹窗的功能，确认提交给卖家的打分
+//#region 实现评分弹窗的功能，确认后提交给卖家的打分
 const dialogRateVisible = ref(false)
 const star = ref(0)
 const cancelRate = () => {
