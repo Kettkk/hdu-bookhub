@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{12F36085-7E87-43D5-8783-0A8809B64419}|bookHubServer\\bookHubServer.csproj|d:\\devprojects\\hdu-bookhub\\server\\bookhubserver\\bookhubserver\\assets\\bookimg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{12F36085-7E87-43D5-8783-0A8809B64419}|bookHubServer\\bookHubServer.csproj|solutionrelative:bookhubserver\\assets\\bookimg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{12F36085-7E87-43D5-8783-0A8809B64419}|bookHubServer\\bookHubServer.csproj|d:\\devprojects\\hdu-bookhub\\server\\bookhubserver\\bookhubserver\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{12F36085-7E87-43D5-8783-0A8809B64419}|bookHubServer\\bookHubServer.csproj|solutionrelative:bookhubserver\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -39,6 +43,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "e0a32d67-c66d-4424-bff7-b21cad3a364d.png",
+              "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Assets\\BookImg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png",
+              "RelativeDocumentMoniker": "bookHubServer\\Assets\\BookImg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png",
+              "ToolTip": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Assets\\BookImg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png",
+              "RelativeToolTip": "bookHubServer\\Assets\\BookImg\\e0a32d67-c66d-4424-bff7-b21cad3a364d.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-01T08:55:02.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "bookHubServer\\Properties\\launchSettings.json",
@@ -51,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Program.cs",
               "RelativeDocumentMoniker": "bookHubServer\\Program.cs",
@@ -59,12 +75,11 @@
               "RelativeToolTip": "bookHubServer\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T11:13:31.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T11:13:31.686Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HomePageController.cs",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Controllers\\HomePageController.cs",
               "RelativeDocumentMoniker": "bookHubServer\\Controllers\\HomePageController.cs",
@@ -76,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PersonalBookController.cs",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Controllers\\PersonalBookController.cs",
               "RelativeDocumentMoniker": "bookHubServer\\Controllers\\PersonalBookController.cs",
@@ -84,12 +99,11 @@
               "RelativeToolTip": "bookHubServer\\Controllers\\PersonalBookController.cs",
               "ViewState": "AQIAAFsAAAAAAAAAAADwv6wAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T05:24:29.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T05:24:29.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "OrderManagementController.cs",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Controllers\\OrderManagementController.cs",
               "RelativeDocumentMoniker": "bookHubServer\\Controllers\\OrderManagementController.cs",
@@ -101,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PurchaseController.cs",
               "DocumentMoniker": "D:\\DevProjects\\hdu-bookhub\\server\\bookHubServer\\bookHubServer\\Controllers\\PurchaseController.cs",
               "RelativeDocumentMoniker": "bookHubServer\\Controllers\\PurchaseController.cs",
