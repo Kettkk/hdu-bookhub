@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
 
         <NavHeader></NavHeader>
     
@@ -23,6 +23,9 @@ import chatWindow from '@/components/chatViewComponents/chatWindow.vue';
     justify-content: center;
     align-items: center;
     background-color: blanchedalmond;
+    background-image: url('src/assets/demo1.jpg'); /* 使用相对路径引用图片 */
+    background-size: cover; /* 使背景图覆盖整个容器 */
+    background-position: center; /* 使背景图居中 */
 }
 
 </style>
