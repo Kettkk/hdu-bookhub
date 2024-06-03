@@ -8,7 +8,6 @@ const loginForm = ref({
     username: '',
     password: ''
 });
-const formRef = ref(null);
 
 const loginFormRules = {
     username: [
@@ -27,33 +26,35 @@ const loginFormRules = {
     ]
 };
 
+const formRef = ref(null);
+
 const go2SignUpForm = () => {
     router.push({name: 'signUp'});
 }
 
 const submitForm = () => {
-    formRef.value = loginForm.value;
-    formRef.value.validate((valid) => {
-        if (valid) {
-            console.log('表单验证通过！尝试登录...');
-
-            // 示例：使用Axios API请求进行用户登录
-            axios.post(' rehttp://101.34.70.172:5062/api/Login"', {
-                username: formRef.value.username,
-                password: formRef.value.password
-            }).then(response => {
-                console.log('登录成功：', response.data);
-                // 处理登录成功的逻辑（例如，路由导航，存储token）
-            }).catch(error => {
-                console.error('登录失败：', error);
-                alert('登录失败！服务器错误，请稍后重试');
-            });
-
-        } else {
-            console.error('表单验证失败！');
-            alert('登录失败！请检查输入是否正确');
-        }
-    });
+    if (formRef.value) {
+        formRef.value.validate((valid) => {
+            if (valid) {
+                console.log('表单验证通过！尝试登录...');
+                // 示例：使用Axios API请求进行用户登录
+                axios.post('http://localhost:5000/api/Login', {
+                    username: loginForm.value.username,
+                    password: loginForm.value.password
+                }).then(response => {
+                    console.log('登录成功：', response.data);
+                    // 处理登录成功的逻辑（例如，路由导航，存储token）
+                    router.push({name: 'console'});
+                }).catch(error => {
+                    console.error('登录失败：', error);
+                    alert('登录失败！请检查用户名或密码是否正确');
+                });
+            } else {
+                console.error('表单验证失败！');
+                alert('登录失败！请检查输入是否正确');
+            }
+        });
+    }
 };
 </script>
 
@@ -66,7 +67,7 @@ const submitForm = () => {
             </div>
 
             <div class="login-form">
-                <el-form ref="formRef" :model="loginForm" status-icon :rules="loginFormRules" label-width="100px" class="demo-ruleForm">
+                <el-form ref="formRef" :model="loginForm" :rules="loginFormRules" label-width="100px" class="demo-ruleForm">
                     <el-form-item label="用户名" prop="username">
                         <el-input v-model="loginForm.username" autocomplete="off"></el-input>
                     </el-form-item>

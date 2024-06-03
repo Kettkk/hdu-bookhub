@@ -23,27 +23,29 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: adminView
-    },
-    {
-      path: '/admin/console',
-      name: 'console',
-      component: consoleView
-    },
-    {
-      path: '/admin/userList',
-      name: 'userList',
-      component: userListView
-    },
-    {
-      path: '/admin/orderManagement',
-      name: 'orderManagement',
-      component: orderManagementView
-    },
-    {
-      path: '/admin/goodsManagement',
-      name: 'goodsManagement',
-      component: goodsManagementView
+      component: adminView,
+      children: [
+        {
+          path: 'console',
+          name: 'console',
+          component: consoleView
+        },
+        {
+          path: 'userList',
+          name: 'userList',
+          component: userListView
+        },
+        {
+          path: 'orderManagement',
+          name: 'orderManagement',
+          component: orderManagementView
+        },
+        {
+          path: 'goodsManagement',
+          name: 'goodsManagement',
+          component: goodsManagementView
+        }
+      ]
     }
   ]
 })

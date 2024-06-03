@@ -15,14 +15,10 @@ const signUp = () => {
         alert('两次输入的密码不一致！')
         return
     }
-    const userInfo = ref({
-        username: from.username,
-        password: from.password
-    })
-    axios.post('http://localhost:8081/api/saveUserInfo', userInfo)
+    axios.post('http://localhost:5000/api/SignUp', {username: from.username, password: from.password})
         .then(response => {
             console.log(response)
-            if (response.data === "success") {
+            if (response.status == 200) {
                 alert('注册成功！')
                 router.push({name: 'login'})
             } else {
