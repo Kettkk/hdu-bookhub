@@ -17,7 +17,7 @@ export default defineConfig({
     cors:true,
     proxy:{
       '/5062':{
-        target:'http://localhost:5062',
+        target:'http://bkhb.site:5062',
         changeOrigin:true
       },
     }
