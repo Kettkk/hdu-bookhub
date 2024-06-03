@@ -5,6 +5,7 @@ import axios from 'axios';
 const route = useRoute();
 const userID = ref()
 import { testURL } from '@/Tools/testTool';
+import router from "@/router/index.js";
 userID.value = route.query.sellerID
 
 const username = ref('');
@@ -22,6 +23,22 @@ axios.post(url)
   .catch(function (error) {
     console.log(error);
   });
+
+const createChatObject = () => {
+  axios.post('http://'+testURL+':5062/api/chat/ChatCreate', {
+    "cookieStr": document.cookie.split('=')[1],
+    "userBID": userID.value
+  })
+    .then(function (response) {
+      console.log(response.data);
+      router.push({ path: '/chatRoom'})
+    })
+    .catch(function (error) {
+      console.log(error);
+      router.push({ path: '/chatRoom'})
+    });
+}
+
 
 </script>
 
@@ -45,7 +62,7 @@ axios.post(url)
             <el-rate v-model="value" disabled  text-color="#ff9900" size="large"/>
           </el-container>
 
-          <el-button round :size="'large'" id="sendMessageBtn">发消息</el-button>
+          <el-button round :size="'large'" id="sendMessageBtn" @click="createChatObject">发消息</el-button>
         </div>
 
 

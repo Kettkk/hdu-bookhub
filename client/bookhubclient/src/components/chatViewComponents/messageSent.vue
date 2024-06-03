@@ -1,16 +1,22 @@
 <template>
     <div id="message">
         <div id="message-content">
-            嗨！很高兴见到你！希望你今天过得愉快。无论是新的一天还是美好的夜晚，都希望你能充满活力，心情愉快。
-            在这个瞬息万变的世界里，与你分享这一刻，感觉格外美好。无论你正在做什么，我都想对你说声“你好”，
-            愿你的每一天都充满阳光和欢笑！
+          {{props.messageSentText}}
         </div>
         <el-avatar id="message-avatar" :icon="UserFilled" />
     </div>
 </template>
 
 <script setup>
-    
+    import {defineProps} from "vue";
+    import {UserFilled} from "@element-plus/icons-vue";
+
+    const props = defineProps({
+      messageSentText: {
+        type: String,
+        required: true
+      }
+    })
 </script>
 
 <style scoped>

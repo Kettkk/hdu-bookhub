@@ -7,7 +7,7 @@
 
 
         <div v-show="isButtonVisible" style="margin-left:auto ;margin-right: 5px;">
-            <el-button type="danger" :icon="CloseBold" circle size='small' />
+            <el-button type="danger" :icon="CloseBold" circle size='small'  @click="delChat"/>
         </div>
         
 
@@ -17,12 +17,18 @@
 <script setup>
 import { CloseBold } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import axios from "axios";
+import {testURL} from "@/Tools/testTool.js";
 
 const props = defineProps({
     item: {
         type: Object,
         required: true
     },
+    otherID: {
+        type: Number,
+        required: true
+    }
 })
 
 
@@ -34,6 +40,21 @@ const hideButton = () => {
     isButtonVisible.value = false
 }
 
+const delChat = () => {
+    axios.post('http://'+testURL+':5062/api/chat/contactListDel', {
+        "jwtStr": document.cookie.split('=')[1],
+        "otherID": props.otherID
+    })
+        .then(function (response) {
+            console.log(response.data);
+            setTimeout(() => {
+            location.reload();
+          }, 2000);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 
 

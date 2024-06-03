@@ -82,6 +82,11 @@ public class TokenTool
             password = password
         };
     }
+
+    internal static TokenClaim ParseToken(int cookieStr)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

@@ -30,12 +30,12 @@
 
 
                 <el-main id="message-list">
-
+                  <message-list :otherName="contactName"></message-list>
                 </el-main>
 
                 <el-footer id="message-input">
                     <el-input v-model="messageText" maxlength="500" style="width: 650px" placeholder="请输入消息..." 
-                        resize="none" :rows="6" show-word-limit type="textarea" @keyup.enter="clearInput"/>
+                        resize="none" :rows="6" show-word-limit type="textarea" @keyup.enter="clearInputAndSendMsg"/>
                 </el-footer>
 
             </el-container>
@@ -47,6 +47,9 @@
 import { ref } from 'vue'
 import contactList from './contactList.vue';
 import { Message } from '@element-plus/icons-vue';
+import MessageList from "@/components/chatViewComponents/messageList.vue";
+import axios from "axios";
+import {testURL} from "@/Tools/testTool.js";
 const messageText = ref('')
 const contactName = ref("")
 
@@ -54,9 +57,20 @@ const emitGetContactName = (data) => {
     contactName.value = data
 }
 
-const clearInput = () =>{
+const clearInputAndSendMsg = () =>{
+    axios.post('http://'+testURL+':5062/api/chat/sendMessage', {
+        "jwt": document.cookie.split('=')[1],
+        "receiverName": contactName.value,
+        "content": messageText.value
+    })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     messageText.value=""
-}  
+}
 </script>
 
 <style scoped>

@@ -2,14 +2,20 @@
     <div id="message">
         <el-avatar id="message-avatar" :icon="UserFilled" />
         <div id="message-content">
-          {{ messageReceivedText }}
+          {{props.messageReceivedText}}
         </div>
     </div>
 </template>
 
 <script setup>
-    import { ref } from 'vue';
-    const messageReceivedText=ref("")
+import { UserFilled } from '@element-plus/icons-vue'
+import { defineProps } from 'vue'
+const props = defineProps({
+  messageReceivedText: {
+        type: String,
+        required: true
+    }
+})
 
 </script>
 
