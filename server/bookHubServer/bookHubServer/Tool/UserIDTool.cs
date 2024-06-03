@@ -15,4 +15,16 @@ public class UserIDTool
 
         return res;
     }
+
+    public static int getUserIDByName(string username)
+    {
+        MySqlConnection connection = DataBaseTool.GetConnection();
+        connection.Open();
+
+        MySqlCommand cmd = new MySqlCommand("select userID from User where username=@username", connection);
+        cmd.Parameters.AddWithValue("@username", username);
+
+        int res = Convert.ToInt32(cmd.ExecuteScalar());
+        return res;
+    }
 }
