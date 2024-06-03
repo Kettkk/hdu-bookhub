@@ -11,8 +11,8 @@ const goodsPerPage = 12; // 每页显示的商品数量
 const currentPage = ref(1); // 当前页码
 
 const goodsList = ref([])
-
-const url = 'http://101.34.70.172:5062/api/SellerPage/SellerBook?sellerID=' + userID.value
+import { testURL } from '@/Tools/testTool';
+const url = 'http://'+testURL+':5062/api/SellerPage/SellerBook?sellerID=' + userID.value
 
 axios.post(url)
   .then(function (response) {

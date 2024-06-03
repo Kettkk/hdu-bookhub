@@ -1,5 +1,4 @@
 ﻿using bookHubServer.Tool;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
@@ -24,12 +23,12 @@ public class HomePageController : ControllerBase
     {
         try
         {
-           
+
             MySqlConnection connection = DataBaseTool.GetConnection();
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.UserID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY `User`.star DESC LIMIT 8", connection);
+            MySqlCommand command = new MySqlCommand("SELECT g.*,`User`.userID FROM (SELECT * FROM Good EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID) AS g,`User` WHERE g.sellerID=`User`.userID ORDER BY `User`.star DESC LIMIT 8", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -46,7 +45,7 @@ public class HomePageController : ControllerBase
                 book.description = reader.GetString("description");
                 book.imgURL = reader.GetString("bookImg");
                 book.sellerID = reader.GetInt32("userID");
-                for(int i=0;i<book.description.Length;i++)
+                for (int i = 0; i < book.description.Length; i++)
                 {
                     if (book.description[i] == '：')
                     {
@@ -64,16 +63,16 @@ public class HomePageController : ControllerBase
             connection.Close();
             return Ok(recommendedBooks);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return StatusCode(500, $"Error:{ex.Message}");
         }
-       
+
     }
 
-   
 
-    [HttpGet("LatestBook")] 
+
+    [HttpGet("LatestBook")]
     public IActionResult GetLatestBook()
     {
         try
@@ -83,7 +82,7 @@ public class HomePageController : ControllerBase
 
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT Good.*,`User`.userID FROM Good INNER JOIN `User` ON Good.sellerID=`User`.userID ORDER BY Good.createTime DESC LIMIT 8", connection);
+            MySqlCommand command = new MySqlCommand("SELECT g.*,`User`.userID FROM (SELECT * FROM Good EXCEPT SELECT Good.* FROM Good,`Order`WHERE Good.goodID = `Order`.goodID) AS g,`User` WHERE g.sellerID=`User`.userID ORDER BY g.createTime DESC LIMIT 8", connection);
 
             MySqlDataReader reader = command.ExecuteReader();
 

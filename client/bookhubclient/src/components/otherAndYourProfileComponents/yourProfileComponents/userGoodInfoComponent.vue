@@ -1,21 +1,21 @@
 <script setup>
-import { Goods, Sell, SoldOut } from "@element-plus/icons-vue";
+import { Goods, Sell, SoldOut,Tickets} from "@element-plus/icons-vue";
 import { ref, onMounted } from 'vue';
 import router from "@/router/index.js";
 import axios from "axios";
 const goodsPublishedCount = ref();
 const goodsSoldCount = ref();
 const goodsPurchasedCount = ref();
-const personalID=ref()
-
+const personalID = ref()
+import { testURL } from "@/Tools/testTool";
 onMounted(() => {
   const tokenStr = document.cookie.split('=')[1]
 
-  axios.post('http://101.34.70.172:5062/api/PersonalPage', {
+  axios.post('http://' + testURL + ':5062/api/PersonalPage', {
     tokenValue: tokenStr
   })
     .then(function (response) {
-      personalID.value=response.data.userId
+      personalID.value = response.data.userId
       goodsPublishedCount.value = response.data.publishedNum
       goodsSoldCount.value = response.data.soldNum
       goodsPurchasedCount.value = response.data.purchasedNum
@@ -29,36 +29,61 @@ onMounted(() => {
 
 const go2PublishedGoodsView = () => {
   router.push({
-     name: 'publishedGoodsView',
-     query:{
-      personalID:personalID.value,
-      whichView:1
-     }
+    name: 'publishedGoodsView',
+    query: {
+      personalID: personalID.value,
+    }
   });
 }
 const go2SoldGoodsView = () => {
-  router.push({ 
-    name: 'soldGoodsView', 
-    query:{
-      personalID:personalID.value,
-      whichView:2
+  router.push({
+    name: 'soldGoodsView',
+    query: {
+      personalID: personalID.value,
     }
   });
 }
 const go2BroughtGoodsView = () => {
-  router.push({ 
+  router.push({
     name: 'broughtGoodsView',
-    query:{
-      personalID:personalID.value,
-      whichView:3
+    query: {
+      personalID: personalID.value,
     }
-  }); 
+  });
+}
+
+const goToMyOrdersView = () =>{
+  router.push({
+    name:'MyOrders',
+    query:{
+      personalID:personalID.value
+    }
+  })
+
 }
 </script>
 
 <template>
   <div>
     <el-container id="infoWindowContainer">
+      <div class="goodInfoWindow" @click="goToMyOrdersView">
+        <div style="font-size: 30px;
+      font-family: 'Apple Braille';
+      color: #525252;
+      margin-top: 5px;
+      margin-left: 10px">
+          订单管理
+        </div>
+
+        <div>
+          <el-icon :size="145" style="margin-left: 80px;margin-top: 10px">
+           <Tickets style="color: #3f3f3f;" />
+          </el-icon>
+        </div>
+
+      
+      </div>
+
       <div class="goodInfoWindow" @click="go2PublishedGoodsView">
         <div style="font-size: 30px;
       font-family: 'Apple Braille';

@@ -53,6 +53,11 @@ const router = createRouter({
       path:'/searchBooks',
       name:'searchBooks',
       component:()=>import('@/views/searchBooksView.vue')
+    },
+    {
+      path:'/userProfile/MyOrders',
+      name:'MyOrders',
+      component:()=>import('@/views/myOrdersView.vue')
     }
   ]
 })

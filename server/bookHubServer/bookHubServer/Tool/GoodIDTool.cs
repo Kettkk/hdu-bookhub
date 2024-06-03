@@ -11,10 +11,18 @@ public class GoodIDTool
 
         MySqlCommand command = new MySqlCommand("SELECT MAX(goodID) FROM Good", connection);
 
-        int res = Convert.ToInt32(command.ExecuteScalar());
+        var res = command.ExecuteScalar();
 
-        connection.Close();
-        return res;
+        if (res == null || res == DBNull.Value)
+        {
+            connection.Close();
+            return 0;
+        }
+        else
+        {
+            connection.Close();
+            return Convert.ToInt32(res);
+        }
     }
 }
 

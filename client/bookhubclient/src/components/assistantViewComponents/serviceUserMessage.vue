@@ -10,7 +10,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
-
+import { testURL } from '@/Tools/testTool';
 const props = defineProps({
   userMessage: {
     type: String,
@@ -23,7 +23,7 @@ const squareUrl = ref('');
 onMounted(() => {
   const tokenStr = document.cookie.split('=')[1];
 
-  axios.post('http://101.34.70.172:5062/api/assistant/getUserAvatar', {
+  axios.post('http://'+testURL+':5062/api/assistant/getUserAvatar', {
     tokenValue: tokenStr
   })
       .then(response => {

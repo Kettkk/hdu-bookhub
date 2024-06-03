@@ -11,8 +11,17 @@ public class UserIDTool
 
         MySqlCommand command = new MySqlCommand("SELECT MAX(userID) FROM User", connection);
 
-        int res = Convert.ToInt32(command.ExecuteScalar());
+        var res = command.ExecuteScalar();
 
-        return res;
+        if (res == null || res == DBNull.Value)
+        {
+            connection.Close();
+            return 0;
+        }
+        else
+        {
+            connection.Close();
+            return Convert.ToInt32(res);
+        }
     }
 }

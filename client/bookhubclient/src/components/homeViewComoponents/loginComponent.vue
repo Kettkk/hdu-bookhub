@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import {ElMessage} from "element-plus";
-
+import { testURL } from "@/Tools/testTool";
 function checkJwt1CookieExists() {
     const cookies = document.cookie.split('; ');
     const jwtCookie = cookies.find(cookie => cookie.trim().startsWith('jwt1='));
@@ -75,7 +75,7 @@ const handleClose = () => {
 };
 
 const test = (loginInfo) => {
-    axios.post('http://101.34.70.172:5062/api/Login', loginInfo)
+    axios.post('http://'+testURL+':5062/api/Login', loginInfo)
         .then(res => {
             console.log(res);
             const jwt = res.data;

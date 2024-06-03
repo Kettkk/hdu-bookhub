@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios';
 const dialogFormVisible = ref(false);
 const dialogPublishGoodVisible = ref(false);
-
+import { testURL } from '@/Tools/testTool';
 //#region 个人信息显示JS
 const username = ref('');
 const money = ref();
@@ -12,7 +12,7 @@ const squareUrl = ref('');
 onMounted(() => {
   const tokenStr = document.cookie.split('=')[1]
 
-  axios.post('http://101.34.70.172:5062/api/PersonalPage', {
+  axios.post('http://'+testURL+':5062/api/PersonalPage', {
     tokenValue: tokenStr
   })
     .then(function (response) {
@@ -95,7 +95,7 @@ const submitGoodInfo = () => {
     formData.append("description", description.value)
 
     const tokenStr = document.cookie.split('=')[1]
-    axios.post('http://101.34.70.172:5062/api/PublishBook', formData, {
+    axios.post('http://'+testURL+':5062/api/PublishBook', formData, {
       headers: {
         Authorization: `Bearer ${tokenStr}`
       }
@@ -181,7 +181,7 @@ const submitUserInfo = () => {
     editedFormData.append("editedEmail",editedEmail.value)
     
     const tokenStr = document.cookie.split('=')[1]
-    axios.post('http://101.34.70.172:5062/api/EditPersonalInfo', editedFormData, {
+    axios.post('http://'+testURL+':5062/api/EditPersonalInfo', editedFormData, {
       headers: {
         Authorization: `Bearer ${tokenStr}`
       }

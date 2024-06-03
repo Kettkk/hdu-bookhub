@@ -3,7 +3,8 @@ import router from "@/router/index.js";
 import axios from "axios";
 import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
-
+import { testURL } from "@/Tools/testTool";
+import { ElMessage } from 'element-plus'
 
 const route = useRoute();
 
@@ -17,13 +18,13 @@ const information = reactive({
 });
 
 const purchaseBookID = ref('');
-const purchasesellerID =ref('')
+const purchasesellerID = ref('')
 purchaseBookID.value = route.query.bookID
-purchasesellerID.value=route.query.sellerID
+purchasesellerID.value = route.query.sellerID
 
-console.log(purchaseBookID.value,purchasesellerID.value)
+console.log(purchaseBookID.value, purchasesellerID.value)
 
-const url = 'http://101.34.70.172:5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
+const url = 'http://' + testURL + ':5062/api/PurchasePage?purchaseBookID=' + purchaseBookID.value;
 
 
 axios.post(url)
@@ -50,11 +51,35 @@ const go2ChatView = () => {
 const go2otherProfileView = () => {
   console.log('go2otherProfileView');
   router.push({
-      path:'/userProfile/otherProfile',
-      query:{
-        sellerID:purchasesellerID.value
-      }
+    path: '/userProfile/otherProfile',
+    query: {
+      sellerID: purchasesellerID.value
+    }
   });
+}
+
+
+const purchaseThisBook = () => {
+  const tokenStr = document.cookie.split('=')[1]
+  axios.post('http://' + testURL + ':5062/api/Purchase', {
+    tokenStr: tokenStr,
+    sellerID: purchasesellerID.value,
+    goodID: purchaseBookID.value
+  })
+    .then(function (response) {
+      if (purchasesellerID.value == response.data) {
+        ElMessage({
+          message: '无法购买自己发布的商品',
+          type: 'error',
+          plain: true,
+        })
+      } else {
+        router.replace('/userProfile/MyOrders?personalID=' + response.data)
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
 </script>
 
@@ -95,6 +120,7 @@ const go2otherProfileView = () => {
         </div>
 
 
+
         <div id="goodDescriptionContainer">
 
           <div id="scrollable-container">
@@ -103,8 +129,10 @@ const go2otherProfileView = () => {
               {{ information.goodDescription }}
             </el-card>
           </div>
+        </div>
 
-
+        <div style="margin: 50px 0px 0px 1070px;">
+          <el-button type="primary" size="large" @click="purchaseThisBook">购买</el-button>
         </div>
       </el-main>
 
