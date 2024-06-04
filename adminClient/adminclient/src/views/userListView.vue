@@ -4,20 +4,27 @@ import axios from "axios";
 
 const errorHandler = () => true
 
-const confirmEvent = () => {
-    console.log('confirm!')
-
+const confirmEvent = async (id: number) => {
+    console.log('confirm!', id);
+    try{
+        await axios.delete('http://localhost:5000/api/UserList/' + id);
+        await fetchData();
+    } catch (error) {
+        console.error('删除数据时出错', error);
+    }
 }
 
 const tableData = ref([]);
-onMounted(async () => {
+const fetchData = async () => {
     try {
         const response = await axios.get('http://localhost:5000/api/UserList');
         tableData.value = response.data;
     } catch (error) {
         console.error('拉取数据时出错', error);
     }
-})
+};
+
+onMounted(fetchData);
 </script>
 
 <template>
@@ -41,8 +48,8 @@ onMounted(async () => {
         <el-table-column prop="lastUpdateTime" label="LastUpdateTime" width="180" />
         <el-table-column fixed="right" label="Operations" width="120">
 
-            <template #default>
-                <el-popconfirm title="Are you sure to delete this?" @confirm="confirmEvent">
+            <template #default="{ row }">
+                <el-popconfirm title="Are you sure to delete this?" @confirm="() => confirmEvent(row.userID)">
                     <template #reference>
                         <el-button link type="primary" size="small">
                             Delete
