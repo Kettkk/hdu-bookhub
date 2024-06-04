@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import axios from "axios";
 import router from "@/router";
-import MountainOfLoginPicture from "@/loginViewComponents/mountainOfLoginPicture.vue";
+import MountainOfLoginPicture from "@/Components/loginViewComponents/mountainOfLoginPicture.vue";
 
 const loginForm = ref({
     username: '',
