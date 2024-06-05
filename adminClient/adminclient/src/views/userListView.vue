@@ -1,9 +1,9 @@
 <script lang = "ts" setup>
 import {onMounted, ref} from 'vue';
 import axios from "axios";
+import { ElDialog, ElMessage } from "element-plus";
 
-const errorHandler = () => true
-
+const errorHandler = () => true;
 const confirmEvent = async (id: number) => {
     console.log('confirm!', id);
     try{
@@ -12,8 +12,7 @@ const confirmEvent = async (id: number) => {
     } catch (error) {
         console.error('删除数据时出错', error);
     }
-}
-
+};
 const tableData = ref([]);
 const fetchData = async () => {
     try {
@@ -23,8 +22,91 @@ const fetchData = async () => {
         console.error('拉取数据时出错', error);
     }
 };
-
 onMounted(fetchData);
+
+//#region 修改个人信息功能JS
+const cmpData = {
+    editedName1: '',
+    editedPassword1: '',
+    editedEmail1: '',
+    editedMoney1: 0,
+    editedStar1: 0,
+    currentUserID1: 0,
+};
+const editedName = ref('');
+const editedPassword = ref('');
+const editedEmail = ref('');
+let editedMoney = ref(0);
+const editedStar = ref(0);
+const dialogFormVisible = ref(false);
+let currentUserID = ref(0);
+
+//打开编辑个人信息窗口
+const openEditDialog = (row: any) => {
+    currentUserID.value = row.userID;
+    editedName.value = row.username;
+    editedPassword.value = row.password;
+    editedEmail.value = row.email;
+    editedMoney.value = row.money;
+    editedStar.value = row.star;
+
+    cmpData.editedName1 = row.username;
+    cmpData.editedPassword1 = row.password;
+    cmpData.editedEmail1 = row.email;
+    cmpData.editedMoney1 = row.money;
+    cmpData.editedStar1 = row.star;
+    dialogFormVisible.value = true;
+};
+
+//关闭编辑个人信息窗口，清空信息
+const closeEditInfoDialog = () => {
+    editedName.value='';
+    editedPassword.value='';
+    editedEmail.value='';
+    editedMoney.value=0;
+    editedStar.value=0;
+    dialogFormVisible.value=false;
+};
+//提交修改内容的方法
+const submitUserInfo = async () => {
+    if(editedName.value === cmpData.editedName1 && editedPassword.value === cmpData.editedPassword1 && editedEmail.value === cmpData.editedEmail1
+    && editedMoney.value === cmpData.editedMoney1 && editedStar.value === cmpData.editedStar1)
+    {
+        ElMessage({
+            message:'请至少修改一项内容',
+            type:'error',
+            plain:true
+        })
+    }else{
+        try {
+            await axios.put('http://localhost:5000/api/UserList', {
+                UserID: currentUserID.value,
+                Username: editedName.value,
+                Password: editedPassword.value,
+                Email: editedEmail.value,
+                Money: editedMoney.value,
+                Star: editedStar.value,
+                AvatarImg: "",
+            });
+            closeEditInfoDialog();
+            await fetchData();
+            ElMessage({
+                message: '修改成功',
+                type: 'success',
+                plain: true,
+            });
+            console.log('修改成功');
+        } catch (error) {
+            console.error('修改数据时出错', error);
+            ElMessage({
+                message: '修改失败',
+                type: 'error',
+                plain: true,
+            });
+        }
+    }
+};
+//#endregion
 </script>
 
 <template>
@@ -56,11 +138,45 @@ onMounted(fetchData);
                         </el-button>
                     </template>
                 </el-popconfirm>
-                <el-button link type="primary" size="small">Edit</el-button>
+                <el-button link type="primary" size="small" @click="openEditDialog(row)">Edit</el-button>
             </template>
         </el-table-column>
     </el-table>
     <el-backtop :right="100" :bottom="100" />
+
+    <!-- #region 修改个人信息组件 -->
+    <el-dialog v-model="dialogFormVisible" width="360px" :before-close="closeEditInfoDialog">
+        <template #title>
+            <div style="text-align: left;">修改个人信息</div>
+        </template>
+        <div style="display: flex;margin-bottom: 15px;margin-top: 10px;">
+            <span style="margin-right: 5px;">用户名</span>
+            <el-input v-model="editedName" style="width: 240px" />
+        </div>
+        <div style="display: flex;margin-bottom:15px ;">
+            <span style="margin-right: 18px;">密码</span>
+            <el-input v-model="editedPassword" style="width: 240px" />
+        </div>
+        <div style="display: flex;margin-bottom:15px ;">
+            <span style="margin-right: 18px;">邮箱</span>
+            <el-input v-model="editedEmail" style="width: 240px" />
+        </div>
+        <div style="display: flex;margin-bottom:15px ;">
+            <span style="margin-right: 18px;">余额</span>
+            <el-input v-model="editedMoney" style="width: 240px" />
+        </div>
+        <div style="display: flex;margin-bottom:15px ;">
+            <span style="margin-right: 18px;">星级</span>
+            <el-input v-model="editedStar" style="width: 240px" />
+        </div>
+
+        <div style="margin-top: 15px;">
+            <el-button type="primary" @click="submitUserInfo">修改完成</el-button>
+        </div>
+
+    </el-dialog>
+    <!-- #endregion -->
+
 </template>
 
 <style scoped>
