@@ -40,7 +40,7 @@ public class LoginController : ControllerBase
             {
                 MySqlCommand mySqlCommand_verify = new MySqlCommand("SELECT userID,username,email,password FROM User WHERE username=@username AND password=@password", connection);
                 mySqlCommand_verify.Parameters.AddWithValue("@username",loginData.username);
-                mySqlCommand_verify.Parameters.AddWithValue("@password",loginData.password);
+                mySqlCommand_verify.Parameters.AddWithValue("@password",pwdEncryptTool.Encrypt(loginData.password));
 
 
                 MySqlDataReader reader = mySqlCommand_verify.ExecuteReader();

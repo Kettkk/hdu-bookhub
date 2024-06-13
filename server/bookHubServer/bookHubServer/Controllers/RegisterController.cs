@@ -41,13 +41,13 @@ namespace bookHubServer.Controllers
                     user.lastUpdateTime = DateTime.Now;
 
                     MySqlCommand mySqlCommand_insert = new MySqlCommand(
-                       "Insert into User (userID, username, password, email, money, star, avatarImg, createTime, lastUpdateTime) values(@userID, @username, @password, @email, @money, @star, @createTime, @lastUpdateTime)",
+                       "Insert into User (userID, username, password, email, money, star, avatarImg, createTime, lastUpdateTime) values(@userID, @username, @password, @email, @money, @star, @avatarImg, @createTime, @lastUpdateTime)",
                         connection
                     );
                     mySqlCommand_insert.Parameters.AddWithValue("@userID", user.userID);
                     mySqlCommand_insert.Parameters.AddWithValue("@username", registerData.username);
                     mySqlCommand_insert.Parameters.AddWithValue("@email", registerData.email);
-                    mySqlCommand_insert.Parameters.AddWithValue("@password",registerData.password);
+                    mySqlCommand_insert.Parameters.AddWithValue("@password",pwdEncryptTool.Encrypt(registerData.password));
                     mySqlCommand_insert.Parameters.AddWithValue("@money", user.money);
                     mySqlCommand_insert.Parameters.AddWithValue("@star", user.star);
                     mySqlCommand_insert.Parameters.AddWithValue("@avatarImg", user.avatarImg);
