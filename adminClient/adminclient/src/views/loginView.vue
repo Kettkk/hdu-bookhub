@@ -38,7 +38,7 @@ const submitForm = () => {
             if (valid) {
                 console.log('表单验证通过！尝试登录...');
                 // 示例：使用Axios API请求进行用户登录
-                axios.post('http://localhost:5000/api/Login', {
+                axios.post('http://localhost:5062/api/AdminLogin', {
                     username: loginForm.value.username,
                     password: loginForm.value.password
                 }).then(response => {
