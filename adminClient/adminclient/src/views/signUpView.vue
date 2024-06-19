@@ -2,6 +2,7 @@
 import {ref} from 'vue'
 import axios from "axios";
 import router from '@/router';
+import { URL } from '@/ToolUrl';
 
 const signUpFrom = ref({
     username: '',
@@ -15,7 +16,7 @@ const signUp = () => {
         alert('两次输入的密码不一致！')
         return
     }
-    axios.post('http://localhost:5062/api/AdminSignUp', {username: from.username, password: from.password})
+    axios.post('http://' + URL + ':5062/api/AdminSignUp', {username: from.username, password: from.password})
         .then(response => {
             console.log(response)
             if (response.status == 200) {

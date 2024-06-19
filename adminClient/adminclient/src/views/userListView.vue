@@ -2,12 +2,13 @@
 import {onMounted, ref} from 'vue';
 import axios from "axios";
 import { ElDialog, ElMessage } from "element-plus";
+import { URL } from '@/ToolUrl';
 
 const errorHandler = () => true;
 const confirmEvent = async (id: number) => {
     console.log('confirm!', id);
     try{
-        await axios.delete('http://localhost:5062/api/AdminUserList/' + id);
+        await axios.delete('http://' + URL + ':5062/api/AdminUserList/' + id);
         await fetchData();
     } catch (error) {
         console.error('删除数据时出错', error);
@@ -16,7 +17,7 @@ const confirmEvent = async (id: number) => {
 const tableData = ref([]);
 const fetchData = async () => {
     try {
-        const response = await axios.get('http://localhost:5062/api/AdminUserList');
+        const response = await axios.get('http://' + URL + ':5062/api/AdminUserList');
         tableData.value = response.data;
     } catch (error) {
         console.error('拉取数据时出错', error);
@@ -79,7 +80,7 @@ const submitUserInfo = async () => {
         })
     }else{
         try {
-            await axios.put('http://localhost:5062/api/AdminUserList', {
+            await axios.put('http://' + URL + ':5062/api/AdminUserList', {
                 UserID: currentUserID.value,
                 Username: editedName.value,
                 Password: editedPassword.value,

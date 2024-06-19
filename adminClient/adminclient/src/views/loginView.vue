@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import axios from "axios";
 import router from "@/router";
 import MountainOfLoginPicture from "@/Components/loginViewComponents/mountainOfLoginPicture.vue";
+import { URL } from '@/ToolUrl';
 
 const loginForm = ref({
     username: '',
@@ -38,7 +39,7 @@ const submitForm = () => {
             if (valid) {
                 console.log('表单验证通过！尝试登录...');
                 // 示例：使用Axios API请求进行用户登录
-                axios.post('http://localhost:5062/api/AdminLogin', {
+                axios.post('http://' + URL + ':5062/api/AdminLogin', {
                     username: loginForm.value.username,
                     password: loginForm.value.password
                 }).then(response => {

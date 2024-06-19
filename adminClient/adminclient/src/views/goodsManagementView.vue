@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
+import { URL } from '@/ToolUrl';
 
 const tableData = ref([]);
 const dialogVisible = ref(false);
@@ -9,7 +10,7 @@ const previewImageSrc = ref('');
 
 onMounted(async () => {
     try {
-        const response = await axios.get('http://localhost:5062/api/AdminGoodManagement');
+        const response = await axios.get('http://' + URL + ':5062/api/AdminGoodManagement');
         tableData.value = response.data;
     } catch (error) {
         console.error('拉取数据时出错', error);
