@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using bookHubServer.Tool;
+using MySql.Data.MySqlClient;
 
 namespace bookHubServer.AdminTools
 {
@@ -6,7 +7,7 @@ namespace bookHubServer.AdminTools
     {
         public static MySqlConnection getDBC()
         {
-            IConfiguration config = AdminConfigTool.getConfig();
+            IConfiguration config = ConfigureTool.getConfig();
             string connectionString = config["ConnectionStrings:DefaultConnection"];
             return new MySqlConnection(connectionString);
         }
